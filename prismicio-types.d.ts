@@ -50,7 +50,7 @@ type ContentRelationshipFieldWithData<
 
 type ContentPageDocumentDataHeadingSlice = PageTitleSlice | BreadcrumbsSlice | HeroBannerSlice
 
-type ContentPageDocumentDataMainSlice = CtaBannerSlice | FaqQuestionListSlice
+type ContentPageDocumentDataMainSlice = CtaBannerSlice | FaqQuestionListSlice | RichTextSectionSlice | InfoCardListSlice | ImageBlockSlice | ButtonLinkSlice
 
 type ContentPageDocumentDataAsideSlice = CtaBannerSlice | FaqQuestionListSlice
 
@@ -215,6 +215,54 @@ type BreadcrumbsSliceVariation = BreadcrumbsSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type BreadcrumbsSlice = prismic.SharedSlice<"breadcrumbs", BreadcrumbsSliceVariation>;
+
+/**
+ * Primary content in *ButtonLink → Default → Primary*
+ */
+export interface ButtonLinkSliceDefaultPrimary {
+	/**
+	 * Label field in *ButtonLink → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: button_link.default.primary.label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	label: prismic.KeyTextField;
+	
+	/**
+	 * Link field in *ButtonLink → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: button_link.default.primary.link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for ButtonLink Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Centered outline button
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ButtonLinkSliceDefault = prismic.SharedSliceVariation<"default", Simplify<ButtonLinkSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *ButtonLink*
+ */
+type ButtonLinkSliceVariation = ButtonLinkSliceDefault
+
+/**
+ * ButtonLink Shared Slice
+ *
+ * - **API ID**: `button_link`
+ * - **Description**: A single centered outline button linking to another page
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ButtonLinkSlice = prismic.SharedSlice<"button_link", ButtonLinkSliceVariation>;
 
 /**
  * Primary content in *CtaBanner → Default → Primary*
@@ -554,6 +602,102 @@ type HeroBannerSliceVariation = HeroBannerSliceDefault
 export type HeroBannerSlice = prismic.SharedSlice<"hero_banner", HeroBannerSliceVariation>;
 
 /**
+ * Primary content in *ImageBlock → Default → Primary*
+ */
+export interface ImageBlockSliceDefaultPrimary {
+	/**
+	 * Image field in *ImageBlock → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: image_block.default.primary.image
+	 * - **Documentation**: https://prismic.io/docs/fields/image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * Caption field in *ImageBlock → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: image_block.default.primary.caption
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	caption: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ImageBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Image with optional caption
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ImageBlockSliceDefault = prismic.SharedSliceVariation<"default", Simplify<ImageBlockSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *ImageBlock*
+ */
+type ImageBlockSliceVariation = ImageBlockSliceDefault
+
+/**
+ * ImageBlock Shared Slice
+ *
+ * - **API ID**: `image_block`
+ * - **Description**: A single image with an optional caption
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ImageBlockSlice = prismic.SharedSlice<"image_block", ImageBlockSliceVariation>;
+
+/**
+ * Primary content in *InfoCardList → Items*
+ */
+export interface InfoCardListSliceDefaultItem {
+	/**
+	 * Title field in *InfoCardList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: info_card_list.items[].title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Body field in *InfoCardList → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: info_card_list.items[].body
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for InfoCardList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Stacked info cards
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type InfoCardListSliceDefault = prismic.SharedSliceVariation<"default", Record<string, never>, Simplify<InfoCardListSliceDefaultItem>>;
+
+/**
+ * Slice variation for *InfoCardList*
+ */
+type InfoCardListSliceVariation = InfoCardListSliceDefault
+
+/**
+ * InfoCardList Shared Slice
+ *
+ * - **API ID**: `info_card_list`
+ * - **Description**: A list of bordered info cards, each with a title and body text
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type InfoCardListSlice = prismic.SharedSlice<"info_card_list", InfoCardListSliceVariation>;
+
+/**
  * Primary content in *NewsletterSignup → Default → Primary*
  */
 export interface NewsletterSignupSliceDefaultPrimary {
@@ -660,6 +804,54 @@ type PageTitleSliceVariation = PageTitleSliceDefault
 export type PageTitleSlice = prismic.SharedSlice<"page_title", PageTitleSliceVariation>;
 
 /**
+ * Primary content in *RichTextSection → Default → Primary*
+ */
+export interface RichTextSectionSliceDefaultPrimary {
+	/**
+	 * Heading field in *RichTextSection → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: rich_text_section.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+	
+	/**
+	 * Body field in *RichTextSection → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: rich_text_section.default.primary.body
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for RichTextSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Heading and body text
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RichTextSectionSliceDefault = prismic.SharedSliceVariation<"default", Simplify<RichTextSectionSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *RichTextSection*
+ */
+type RichTextSectionSliceVariation = RichTextSectionSliceDefault
+
+/**
+ * RichTextSection Shared Slice
+ *
+ * - **API ID**: `rich_text_section`
+ * - **Description**: Heading + body text block, optionally with inline links
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RichTextSectionSlice = prismic.SharedSlice<"rich_text_section", RichTextSectionSliceVariation>;
+
+/**
  * Primary content in *SocialLinks → Default → Primary*
  */
 export interface SocialLinksSliceDefaultPrimary {
@@ -748,6 +940,10 @@ declare module "@prismicio/client" {
 			BreadcrumbsSliceDefaultPrimary,
 			BreadcrumbsSliceVariation,
 			BreadcrumbsSliceDefault,
+			ButtonLinkSlice,
+			ButtonLinkSliceDefaultPrimary,
+			ButtonLinkSliceVariation,
+			ButtonLinkSliceDefault,
 			CtaBannerSlice,
 			CtaBannerSliceDefaultPrimary,
 			CtaBannerSliceVariation,
@@ -767,6 +963,14 @@ declare module "@prismicio/client" {
 			HeroBannerSliceDefaultPrimary,
 			HeroBannerSliceVariation,
 			HeroBannerSliceDefault,
+			ImageBlockSlice,
+			ImageBlockSliceDefaultPrimary,
+			ImageBlockSliceVariation,
+			ImageBlockSliceDefault,
+			InfoCardListSlice,
+			InfoCardListSliceDefaultItem,
+			InfoCardListSliceVariation,
+			InfoCardListSliceDefault,
 			NewsletterSignupSlice,
 			NewsletterSignupSliceDefaultPrimary,
 			NewsletterSignupSliceVariation,
@@ -775,6 +979,10 @@ declare module "@prismicio/client" {
 			PageTitleSliceDefaultPrimary,
 			PageTitleSliceVariation,
 			PageTitleSliceDefault,
+			RichTextSectionSlice,
+			RichTextSectionSliceDefaultPrimary,
+			RichTextSectionSliceVariation,
+			RichTextSectionSliceDefault,
 			SocialLinksSlice,
 			SocialLinksSliceDefaultPrimary,
 			SocialLinksSliceDefaultItem,

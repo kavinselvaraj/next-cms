@@ -30,8 +30,19 @@ export default async function Page({ params }: PageProps) {
     ],
   };
 
+  const hasAside = page.data.aside.length > 0;
+  const hasFooter = page.data.footer.length > 0;
+
+  const layoutClassName = [
+    "page-layout",
+    hasAside ? null : "page-layout--no-aside",
+    hasFooter ? null : "page-layout--no-footer",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <div className="page-layout">
+    <div className={layoutClassName}>
       <div className="page-heading">
         <SliceZone
           slices={page.data.heading}
@@ -48,21 +59,25 @@ export default async function Page({ params }: PageProps) {
         />
       </main>
 
-      <aside className="page-aside">
-        <SliceZone
-          slices={page.data.aside}
-          components={components}
-          context={context}
-        />
-      </aside>
+      {hasAside ? (
+        <aside className="page-aside">
+          <SliceZone
+            slices={page.data.aside}
+            components={components}
+            context={context}
+          />
+        </aside>
+      ) : null}
 
-      <footer className="page-footer">
-        <SliceZone
-          slices={page.data.footer}
-          components={components}
-          context={context}
-        />
-      </footer>
+      {hasFooter ? (
+        <footer className="page-footer">
+          <SliceZone
+            slices={page.data.footer}
+            components={components}
+            context={context}
+          />
+        </footer>
+      ) : null}
     </div>
   );
 }

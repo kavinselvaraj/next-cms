@@ -1,0 +1,35 @@
+{
+  "id": "rich_text_section",
+  "type": "SharedSlice",
+  "name": "RichTextSection",
+  "description": "Heading + body text block, optionally with inline links",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "https://prismic.io/docs/slices",
+      "version": "initial",
+      "description": "Heading and body text",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading2,heading3",
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "label": "Body",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "info_card_list",
+  "type": "SharedSlice",
+  "name": "InfoCardList",
+  "description": "A list of bordered info cards, each with a title and body text",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "https://prismic.io/docs/slices",
+      "version": "initial",
+      "description": "Stacked info cards",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "title": {
+          "type": "Text",
+          "config": { "label": "Title", "placeholder": "" }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "label": "Body",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}
