@@ -27,7 +27,17 @@
             "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
             "label": "Body",
             "placeholder": "",
-            "labels": ["small", "large", "muted", "accent"]
+            "labels": ["small", "large", "muted", "accent"],
+            "font_size": {
+              "type": "Select",
+              "options": ["Small", "Medium", "Large"],
+              "default_value": "Medium"
+            },
+            "font_color": {
+              "type": "Select",
+              "options": ["Default", "Muted", "Accent"],
+              "default_value": "Default"
+            }
           }
         },
         "font_size": {
