@@ -94,6 +94,9 @@
             },
             "callout": {
               "type": "SharedSlice"
+            },
+            "accordion": {
+              "type": "SharedSlice"
             }
           }
         },

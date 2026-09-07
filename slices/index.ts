@@ -1,3 +1,4 @@
+import Accordion from "./Accordion";
 import Breadcrumbs from "./Breadcrumbs";
 import ButtonLink from "./ButtonLink";
 import Callout from "./Callout";
@@ -16,6 +17,7 @@ export type PageContext = {
 };
 
 export const components = {
+  accordion: Accordion,
   breadcrumbs: Breadcrumbs,
   button_link: ButtonLink,
   callout: Callout,

@@ -1,0 +1,55 @@
+{
+  "id": "accordion",
+  "type": "SharedSlice",
+  "name": "Accordion",
+  "description": "Numbered, individually collapsible sections (e.g. a step-by-step process)",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "https://prismic.io/docs/slices",
+      "version": "initial",
+      "description": "Numbered accordion items",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "title": {
+          "type": "Text",
+          "config": { "label": "Title", "placeholder": "" }
+        },
+        "note": {
+          "type": "Text",
+          "config": { "label": "Highlighted Note", "placeholder": "" }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "label": "Body",
+            "placeholder": ""
+          }
+        },
+        "necessities_heading": {
+          "type": "Text",
+          "config": { "label": "Necessities Heading", "placeholder": "" }
+        },
+        "necessities": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "heading4,paragraph,strong,em,hyperlink",
+            "label": "Necessities",
+            "placeholder": ""
+          }
+        },
+        "link_label": {
+          "type": "Text",
+          "config": { "label": "Link Label", "placeholder": "" }
+        },
+        "link": {
+          "type": "Link",
+          "config": { "label": "Link", "placeholder": "", "allowTargetBlank": true }
+        }
+      }
+    }
+  ]
+}
