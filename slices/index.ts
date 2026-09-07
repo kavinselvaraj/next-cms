@@ -1,5 +1,6 @@
 import Breadcrumbs from "./Breadcrumbs";
 import ButtonLink from "./ButtonLink";
+import Callout from "./Callout";
 import CtaBanner from "./CtaBanner";
 import FaqQuestionList from "./FaqQuestionList";
 import HeroBanner from "./HeroBanner";
@@ -17,6 +18,7 @@ export type PageContext = {
 export const components = {
   breadcrumbs: Breadcrumbs,
   button_link: ButtonLink,
+  callout: Callout,
   cta_banner: CtaBanner,
   faq_question_list: FaqQuestionList,
   hero_banner: HeroBanner,

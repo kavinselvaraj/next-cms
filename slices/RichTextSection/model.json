@@ -51,7 +51,8 @@
           "config": {
             "label": "Heading",
             "labels": [
-              "underline"
+              "underline",
+              "highlight"
             ],
             "placeholder": "",
             "single": "heading2,heading3"
@@ -65,7 +66,8 @@
               "small",
               "large",
               "muted",
-              "accent"
+              "accent",
+              "highlight"
             ],
             "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
             "placeholder": ""

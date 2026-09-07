@@ -5,6 +5,7 @@
   --text-muted: #6b7280;
   --border: #e5e7eb;
   --row-hover: #f7f9f8;
+  --highlight-bg: #fff3b0;
 }
 
 * {
@@ -276,6 +277,12 @@ a.faq-list-row:hover {
   color: var(--accent);
 }
 
+.rt-label-highlight {
+  background: var(--highlight-bg);
+  padding: 0.05em 0.2em;
+  border-radius: 2px;
+}
+
 /* InfoCardList slice */
 .info-card-list {
   display: flex;
@@ -345,6 +352,50 @@ a.faq-list-row:hover {
 
 .button-link-cta:hover {
   background: var(--row-hover);
+}
+
+/* Callout slice: a bordered, colored box spanning multiple lines */
+.callout {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.callout h3,
+.callout h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.callout p {
+  margin: 0 0 0.5rem;
+  line-height: 1.6;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout--neutral {
+  background: var(--row-hover);
+  border-color: var(--border);
+}
+
+.callout--info {
+  background: #eaf6f3;
+  border-color: var(--accent);
+}
+
+.callout--warning {
+  background: #fff8e6;
+  border-color: #e0a300;
+}
+
+.callout--success {
+  background: #eaf8ee;
+  border-color: #2e9e4f;
 }
 
 @media (max-width: 768px) {

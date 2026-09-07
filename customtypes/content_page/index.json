@@ -91,6 +91,9 @@
             },
             "button_link": {
               "type": "SharedSlice"
+            },
+            "callout": {
+              "type": "SharedSlice"
             }
           }
         },
