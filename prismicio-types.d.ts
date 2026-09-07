@@ -826,6 +826,28 @@ export interface RichTextSectionSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
 	body: prismic.RichTextField;
+	
+	/**
+	 * Font Size field in *RichTextSection → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Medium
+	 * - **API ID Path**: rich_text_section.default.primary.font_size
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	font_size: prismic.SelectField<"Small" | "Medium" | "Large", "filled">;
+	
+	/**
+	 * Font Color field in *RichTextSection → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Default
+	 * - **API ID Path**: rich_text_section.default.primary.font_color
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	font_color: prismic.SelectField<"Default" | "Muted" | "Accent", "filled">;
 }
 
 /**

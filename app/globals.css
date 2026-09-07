@@ -194,8 +194,34 @@ a.faq-list-row:hover {
   color: var(--accent);
 }
 
+/* Font Size field (whole-block dropdown) */
+.rich-text-section--size-small p {
+  font-size: 0.875rem;
+}
+
+.rich-text-section--size-medium p {
+  font-size: 1rem;
+}
+
+.rich-text-section--size-large p {
+  font-size: 1.125rem;
+}
+
+/* Font Color field (whole-block dropdown), tied to the shared design tokens */
+.rich-text-section--color-default p {
+  color: var(--text);
+}
+
+.rich-text-section--color-muted p {
+  color: var(--text-muted);
+}
+
+.rich-text-section--color-accent p {
+  color: var(--accent);
+}
+
 /* Rich text Labels: inline formatting editors apply to selected text
-   from the toolbar (font size/color, per selection, not the whole block). */
+   from the toolbar (per selection, independent of the dropdowns above). */
 .rt-label-underline {
   text-decoration: underline;
 }
