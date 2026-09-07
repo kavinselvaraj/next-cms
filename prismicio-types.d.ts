@@ -221,16 +221,6 @@ export type BreadcrumbsSlice = prismic.SharedSlice<"breadcrumbs", BreadcrumbsSli
  */
 export interface CtaBannerSliceDefaultPrimary {
 	/**
-	 * Title field in *CtaBanner → Default → Primary*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: cta_banner.default.primary.title
-	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
-	 */
-	title: prismic.RichTextField;
-	
-	/**
 	 * Body field in *CtaBanner → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
@@ -241,31 +231,31 @@ export interface CtaBannerSliceDefaultPrimary {
 	body: prismic.RichTextField;
 	
 	/**
-	 * CTA Label field in *CtaBanner → Default → Primary*
+	 * Label field in *CtaBanner → Default → Primary*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: cta_banner.default.primary.cta_label
+	 * - **API ID Path**: cta_banner.default.primary.label
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
-	cta_label: prismic.KeyTextField;
+	label: prismic.KeyTextField;
 	
 	/**
-	 * CTA Link field in *CtaBanner → Default → Primary*
+	 * Href field in *CtaBanner → Default → Primary*
 	 *
-	 * - **Field Type**: Link
+	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: cta_banner.default.primary.cta_link
-	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 * - **API ID Path**: cta_banner.default.primary.href
+	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
-	cta_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+	href: prismic.KeyTextField;
 }
 
 /**
  * Default variation for CtaBanner Slice
  *
  * - **API ID**: `default`
- * - **Description**: Default
+ * - **Description**: Call to action section for detail pages
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type CtaBannerSliceDefault = prismic.SharedSliceVariation<"default", Simplify<CtaBannerSliceDefaultPrimary>, never>;
@@ -279,7 +269,7 @@ type CtaBannerSliceVariation = CtaBannerSliceDefault
  * CtaBanner Shared Slice
  *
  * - **API ID**: `cta_banner`
- * - **Description**: CtaBanner
+ * - **Description**: Centered CTA button block
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type CtaBannerSlice = prismic.SharedSlice<"cta_banner", CtaBannerSliceVariation>;
@@ -289,14 +279,44 @@ export type CtaBannerSlice = prismic.SharedSlice<"cta_banner", CtaBannerSliceVar
  */
 export interface FaqQuestionListSliceDefaultPrimary {
 	/**
-	 * Title field in *FaqQuestionList → Default → Primary*
+	 * Heading field in *FaqQuestionList → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: faq_question_list.default.primary.title
+	 * - **API ID Path**: faq_question_list.default.primary.heading
 	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
-	title: prismic.RichTextField;
+	heading: prismic.RichTextField;
+	
+	/**
+	 * Description field in *FaqQuestionList → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.default.primary.description
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	description: prismic.RichTextField;
+	
+	/**
+	 * number field in *FaqQuestionList → Default → Primary*
+	 *
+	 * - **Field Type**: Number
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.default.primary.number
+	 * - **Documentation**: https://prismic.io/docs/fields/number
+	 */
+	number: prismic.NumberField;
+	
+	/**
+	 * text field in *FaqQuestionList → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.default.primary.text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	text: prismic.KeyTextField;
 }
 
 /**
@@ -314,35 +334,153 @@ export interface FaqQuestionListSliceDefaultItem {
 	question: prismic.KeyTextField;
 	
 	/**
-	 * Answer field in *FaqQuestionList → Items*
+	 * Href field in *FaqQuestionList → Items*
 	 *
-	 * - **Field Type**: Rich Text
+	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: faq_question_list.items[].answer
-	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 * - **API ID Path**: faq_question_list.items[].href
+	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
-	answer: prismic.RichTextField;
+	href: prismic.KeyTextField;
 }
 
 /**
  * Default variation for FaqQuestionList Slice
  *
  * - **API ID**: `default`
- * - **Description**: Default
+ * - **Description**: Category page list of FAQ questions
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type FaqQuestionListSliceDefault = prismic.SharedSliceVariation<"default", Simplify<FaqQuestionListSliceDefaultPrimary>, Simplify<FaqQuestionListSliceDefaultItem>>;
 
 /**
+ * Primary content in *FaqQuestionList → grid → Primary*
+ */
+export interface FaqQuestionListSliceGridPrimary {
+	/**
+	 * Heading field in *FaqQuestionList → grid → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.grid.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+	
+	/**
+	 * Description field in *FaqQuestionList → grid → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.grid.primary.description
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *FaqQuestionList → Items*
+ */
+export interface FaqQuestionListSliceGridItem {
+	/**
+	 * Question field in *FaqQuestionList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.items[].question
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	question: prismic.KeyTextField;
+	
+	/**
+	 * Href field in *FaqQuestionList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.items[].href
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	href: prismic.KeyTextField;
+}
+
+/**
+ * grid variation for FaqQuestionList Slice
+ *
+ * - **API ID**: `grid`
+ * - **Description**: Category page list of FAQ questions
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FaqQuestionListSliceGrid = prismic.SharedSliceVariation<"grid", Simplify<FaqQuestionListSliceGridPrimary>, Simplify<FaqQuestionListSliceGridItem>>;
+
+/**
+ * Primary content in *FaqQuestionList → withicon → Primary*
+ */
+export interface FaqQuestionListSliceWithiconPrimary {
+	/**
+	 * Heading field in *FaqQuestionList → withicon → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.withicon.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+	
+	/**
+	 * Description field in *FaqQuestionList → withicon → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.withicon.primary.description
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *FaqQuestionList → Items*
+ */
+export interface FaqQuestionListSliceWithiconItem {
+	/**
+	 * Question field in *FaqQuestionList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.items[].question
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	question: prismic.KeyTextField;
+	
+	/**
+	 * Href field in *FaqQuestionList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.items[].href
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	href: prismic.KeyTextField;
+}
+
+/**
+ * withicon variation for FaqQuestionList Slice
+ *
+ * - **API ID**: `withicon`
+ * - **Description**: Category page list of FAQ questions
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FaqQuestionListSliceWithicon = prismic.SharedSliceVariation<"withicon", Simplify<FaqQuestionListSliceWithiconPrimary>, Simplify<FaqQuestionListSliceWithiconItem>>;
+
+/**
  * Slice variation for *FaqQuestionList*
  */
-type FaqQuestionListSliceVariation = FaqQuestionListSliceDefault
+type FaqQuestionListSliceVariation = FaqQuestionListSliceDefault | FaqQuestionListSliceGrid | FaqQuestionListSliceWithicon
 
 /**
  * FaqQuestionList Shared Slice
  *
  * - **API ID**: `faq_question_list`
- * - **Description**: FaqQuestionList
+ * - **Description**: Question list with links to detail pages
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type FaqQuestionListSlice = prismic.SharedSlice<"faq_question_list", FaqQuestionListSliceVariation>;
@@ -617,8 +755,14 @@ declare module "@prismicio/client" {
 			FaqQuestionListSlice,
 			FaqQuestionListSliceDefaultPrimary,
 			FaqQuestionListSliceDefaultItem,
+			FaqQuestionListSliceGridPrimary,
+			FaqQuestionListSliceGridItem,
+			FaqQuestionListSliceWithiconPrimary,
+			FaqQuestionListSliceWithiconItem,
 			FaqQuestionListSliceVariation,
 			FaqQuestionListSliceDefault,
+			FaqQuestionListSliceGrid,
+			FaqQuestionListSliceWithicon,
 			HeroBannerSlice,
 			HeroBannerSliceDefaultPrimary,
 			HeroBannerSliceVariation,

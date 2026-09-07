@@ -1,32 +1,136 @@
 {
+  "description": "Question list with links to detail pages",
   "id": "faq_question_list",
-  "type": "SharedSlice",
   "name": "FaqQuestionList",
-  "description": "FaqQuestionList",
+  "type": "SharedSlice",
   "variations": [
     {
+      "description": "Category page list of FAQ questions",
+      "docURL": "https://prismic.io/docs/slices",
       "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
-      "primary": {
-        "title": {
-          "type": "StructuredText",
-          "config": { "single": "heading2", "label": "Title", "placeholder": "" }
-        }
-      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format",
       "items": {
         "question": {
-          "type": "Text",
-          "config": { "label": "Question", "placeholder": "" }
+          "config": {
+            "label": "Question"
+          },
+          "type": "Text"
         },
-        "answer": {
-          "type": "StructuredText",
-          "config": { "multi": "paragraph,strong,em,hyperlink,list-item", "label": "Answer", "placeholder": "" }
+        "href": {
+          "config": {
+            "label": "Href"
+          },
+          "type": "Text"
         }
-      }
+      },
+      "name": "Default",
+      "primary": {
+        "heading": {
+          "config": {
+            "label": "Heading",
+            "single": "heading2,heading3,strong,em"
+          },
+          "type": "StructuredText"
+        },
+        "description": {
+          "config": {
+            "label": "Description",
+            "multi": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "number": {
+          "config": {
+            "label": "number",
+            "placeholder": ""
+          },
+          "type": "Number"
+        },
+        "text": {
+          "config": {
+            "label": "text",
+            "placeholder": ""
+          },
+          "type": "Text"
+        }
+      },
+      "version": "initial"
+    },
+    {
+      "description": "Category page list of FAQ questions",
+      "docURL": "https://prismic.io/docs/slices",
+      "id": "grid",
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format",
+      "items": {
+        "question": {
+          "config": {
+            "label": "Question"
+          },
+          "type": "Text"
+        },
+        "href": {
+          "config": {
+            "label": "Href"
+          },
+          "type": "Text"
+        }
+      },
+      "name": "grid",
+      "primary": {
+        "heading": {
+          "config": {
+            "label": "Heading",
+            "single": "heading2,heading3,strong,em"
+          },
+          "type": "StructuredText"
+        },
+        "description": {
+          "config": {
+            "label": "Description",
+            "multi": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        }
+      },
+      "version": "initial"
+    },
+    {
+      "description": "Category page list of FAQ questions",
+      "docURL": "https://prismic.io/docs/slices",
+      "id": "withicon",
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format",
+      "items": {
+        "question": {
+          "config": {
+            "label": "Question"
+          },
+          "type": "Text"
+        },
+        "href": {
+          "config": {
+            "label": "Href"
+          },
+          "type": "Text"
+        }
+      },
+      "name": "withicon",
+      "primary": {
+        "heading": {
+          "config": {
+            "label": "Heading",
+            "single": "heading2,heading3,strong,em"
+          },
+          "type": "StructuredText"
+        },
+        "description": {
+          "config": {
+            "label": "Description",
+            "multi": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        }
+      },
+      "version": "initial"
     }
   ]
 }

@@ -10,17 +10,19 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <PrismicRichText field={slice.primary.title} />
-      <dl>
+      <PrismicRichText field={slice.primary.heading} />
+      <PrismicRichText field={slice.primary.description} />
+      <ul>
         {slice.items.map((item, index) => (
-          <div key={`${item.question}-${index}`}>
-            <dt>{item.question}</dt>
-            <dd>
-              <PrismicRichText field={item.answer} />
-            </dd>
-          </div>
+          <li key={`${item.question}-${index}`}>
+            {item.href ? (
+              <a href={item.href}>{item.question}</a>
+            ) : (
+              item.question
+            )}
+          </li>
         ))}
-      </dl>
+      </ul>
     </section>
   );
 }

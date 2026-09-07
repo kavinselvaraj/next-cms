@@ -1,4 +1,5 @@
 {
+  "format": "custom",
   "id": "content_page",
   "label": "Content Page",
   "repeatable": true,
@@ -7,10 +8,7 @@
     "Heading": {
       "uid": {
         "type": "UID",
-        "config": {
-          "label": "UID",
-          "placeholder": "content-page-slug"
-        }
+        "config": { "label": "UID", "placeholder": "content-page-slug" }
       },
       "breadcrumb_level_1_label": {
         "type": "Text",
