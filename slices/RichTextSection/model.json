@@ -17,7 +17,8 @@
           "config": {
             "single": "heading2,heading3",
             "label": "Heading",
-            "placeholder": ""
+            "placeholder": "",
+            "labels": ["underline"]
           }
         },
         "body": {
@@ -25,7 +26,8 @@
           "config": {
             "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
             "label": "Body",
-            "placeholder": ""
+            "placeholder": "",
+            "labels": ["small", "large", "muted", "accent"]
           }
         },
         "font_size": {

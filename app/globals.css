@@ -220,6 +220,28 @@ a.faq-list-row:hover {
   color: var(--accent);
 }
 
+/* Rich text Labels: inline formatting editors apply to selected text
+   from the toolbar, independent of the block-level size/color above. */
+.rt-label-underline {
+  text-decoration: underline;
+}
+
+.rt-label-small {
+  font-size: 0.875em;
+}
+
+.rt-label-large {
+  font-size: 1.125em;
+}
+
+.rt-label-muted {
+  color: var(--text-muted);
+}
+
+.rt-label-accent {
+  color: var(--accent);
+}
+
 /* InfoCardList slice */
 .info-card-list {
   display: flex;
