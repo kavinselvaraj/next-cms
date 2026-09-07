@@ -1,0 +1,32 @@
+{
+  "id": "faq_question_list",
+  "type": "SharedSlice",
+  "name": "FaqQuestionList",
+  "description": "FaqQuestionList",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": { "single": "heading2", "label": "Title", "placeholder": "" }
+        }
+      },
+      "items": {
+        "question": {
+          "type": "Text",
+          "config": { "label": "Question", "placeholder": "" }
+        },
+        "answer": {
+          "type": "StructuredText",
+          "config": { "multi": "paragraph,strong,em,hyperlink,list-item", "label": "Answer", "placeholder": "" }
+        }
+      }
+    }
+  ]
+}

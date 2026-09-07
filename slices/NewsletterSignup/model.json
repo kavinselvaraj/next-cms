@@ -1,0 +1,31 @@
+{
+  "id": "newsletter_signup",
+  "type": "SharedSlice",
+  "name": "NewsletterSignup",
+  "description": "NewsletterSignup",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": { "label": "Title", "placeholder": "" }
+        },
+        "input_placeholder": {
+          "type": "Text",
+          "config": { "label": "Input Placeholder", "placeholder": "you@example.com" }
+        },
+        "submit_label": {
+          "type": "Text",
+          "config": { "label": "Submit Label", "placeholder": "Subscribe" }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

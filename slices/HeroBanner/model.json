@@ -1,0 +1,35 @@
+{
+  "id": "hero_banner",
+  "type": "SharedSlice",
+  "name": "HeroBanner",
+  "description": "HeroBanner",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": { "single": "heading1", "label": "Title", "placeholder": "" }
+        },
+        "image": {
+          "type": "Image",
+          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+        },
+        "cta_label": {
+          "type": "Text",
+          "config": { "label": "CTA Label", "placeholder": "" }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": { "label": "CTA Link", "placeholder": "", "allowTargetBlank": true }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

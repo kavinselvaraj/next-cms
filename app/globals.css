@@ -1,0 +1,61 @@
+:root {
+  color-scheme: light dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/*
+ * Base page layout shared by every content_page: a full-width heading,
+ * a left/right content area, and a full-width footer at the bottom.
+ * Per-page visual style (colors, spacing, fonts) is layered on top of
+ * this via a CSS custom-property scope on [data-page-theme] — see
+ * app/[uid]/page.tsx.
+ */
+.page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-areas:
+    "heading heading"
+    "main    aside"
+    "footer  footer";
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.page-heading {
+  grid-area: heading;
+}
+
+.page-main {
+  grid-area: main;
+  min-width: 0;
+}
+
+.page-aside {
+  grid-area: aside;
+  min-width: 0;
+}
+
+.page-footer {
+  grid-area: footer;
+}
+
+@media (max-width: 768px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "heading"
+      "main"
+      "aside"
+      "footer";
+  }
+}
