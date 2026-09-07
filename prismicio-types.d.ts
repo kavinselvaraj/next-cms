@@ -851,13 +851,50 @@ export interface RichTextSectionSliceDefaultPrimary {
 }
 
 /**
+ * Primary content in *RichTextSection → Items*
+ */
+export interface RichTextSectionSliceDefaultItem {
+	/**
+	 * Line Text field in *RichTextSection → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: rich_text_section.items[].text
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	text: prismic.RichTextField;
+	
+	/**
+	 * Font Size field in *RichTextSection → Items*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Medium
+	 * - **API ID Path**: rich_text_section.items[].font_size
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	font_size: prismic.SelectField<"Small" | "Medium" | "Large", "filled">;
+	
+	/**
+	 * Font Color field in *RichTextSection → Items*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Default
+	 * - **API ID Path**: rich_text_section.items[].font_color
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	font_color: prismic.SelectField<"Default" | "Muted" | "Accent", "filled">;
+}
+
+/**
  * Default variation for RichTextSection Slice
  *
  * - **API ID**: `default`
  * - **Description**: Heading and body text
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type RichTextSectionSliceDefault = prismic.SharedSliceVariation<"default", Simplify<RichTextSectionSliceDefaultPrimary>, never>;
+export type RichTextSectionSliceDefault = prismic.SharedSliceVariation<"default", Simplify<RichTextSectionSliceDefaultPrimary>, Simplify<RichTextSectionSliceDefaultItem>>;
 
 /**
  * Slice variation for *RichTextSection*
@@ -1003,6 +1040,7 @@ declare module "@prismicio/client" {
 			PageTitleSliceDefault,
 			RichTextSectionSlice,
 			RichTextSectionSliceDefaultPrimary,
+			RichTextSectionSliceDefaultItem,
 			RichTextSectionSliceVariation,
 			RichTextSectionSliceDefault,
 			SocialLinksSlice,

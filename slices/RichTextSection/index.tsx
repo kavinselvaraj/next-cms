@@ -28,6 +28,22 @@ export default function RichTextSection({ slice }: RichTextSectionProps) {
     >
       <PrismicRichText field={slice.primary.heading} components={richTextComponents} />
       <PrismicRichText field={slice.primary.body} components={richTextComponents} />
+
+      {slice.items.map((item, index) => {
+        const itemFontSize = item.font_size || "Medium";
+        const itemFontColor = item.font_color || "Default";
+        const itemClassName = [
+          "rich-text-section-line",
+          `rich-text-section-line--size-${itemFontSize.toLowerCase()}`,
+          `rich-text-section-line--color-${itemFontColor.toLowerCase()}`,
+        ].join(" ");
+
+        return (
+          <div className={itemClassName} key={index}>
+            <PrismicRichText field={item.text} components={richTextComponents} />
+          </div>
+        );
+      })}
     </section>
   );
 }

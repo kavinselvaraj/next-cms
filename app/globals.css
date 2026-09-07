@@ -220,6 +220,40 @@ a.faq-list-row:hover {
   color: var(--accent);
 }
 
+/* Per-line items, each independently sized/colored via its own dropdowns */
+.rich-text-section-line {
+  margin: 0 0 0.5rem;
+}
+
+.rich-text-section-line p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.rich-text-section-line--size-small {
+  font-size: 0.875rem;
+}
+
+.rich-text-section-line--size-medium {
+  font-size: 1rem;
+}
+
+.rich-text-section-line--size-large {
+  font-size: 1.125rem;
+}
+
+.rich-text-section-line--color-default {
+  color: var(--text);
+}
+
+.rich-text-section-line--color-muted {
+  color: var(--text-muted);
+}
+
+.rich-text-section-line--color-accent {
+  color: var(--accent);
+}
+
 /* Rich text Labels: inline formatting editors apply to selected text
    from the toolbar (per selection, independent of the dropdowns above). */
 .rt-label-underline {
