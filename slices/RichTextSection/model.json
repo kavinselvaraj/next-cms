@@ -27,6 +27,24 @@
             "label": "Body",
             "placeholder": ""
           }
+        },
+        "font_size": {
+          "type": "Select",
+          "config": {
+            "label": "Font Size",
+            "options": ["Small", "Medium", "Large"],
+            "default_value": "Medium",
+            "placeholder": ""
+          }
+        },
+        "font_color": {
+          "type": "Select",
+          "config": {
+            "label": "Font Color",
+            "options": ["Default", "Muted", "Accent"],
+            "default_value": "Default",
+            "placeholder": ""
+          }
         }
       },
       "items": {}
