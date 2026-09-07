@@ -1,13 +1,6 @@
 {
   "repositoryName": "next-js-ssr",
   "routes": [
-    {
-      "type": "content_page",
-      "path": "/:uid"
-    },
-    {
-      "type": "home_page",
-      "path": "/home-page"
-    }
+    { "type": "content_page", "path": "/:uid" }
   ]
 }

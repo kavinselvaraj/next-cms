@@ -1,90 +1,137 @@
 {
   "format": "custom",
   "id": "content_page",
-  "label": "Content Page",
-  "repeatable": true,
-  "status": true,
   "json": {
     "Heading": {
       "uid": {
-        "type": "UID",
-        "config": { "label": "UID", "placeholder": "content-page-slug" }
+        "config": {
+          "label": "UID",
+          "placeholder": "content-page-slug"
+        },
+        "type": "UID"
       },
       "breadcrumb_level_1_label": {
-        "type": "Text",
-        "config": { "label": "Breadcrumb Level 1 Label", "placeholder": "" }
+        "config": {
+          "label": "Breadcrumb Level 1 Label",
+          "placeholder": ""
+        },
+        "type": "Text"
       },
       "breadcrumb_level_1_href": {
-        "type": "Text",
-        "config": { "label": "Breadcrumb Level 1 Href", "placeholder": "" }
+        "config": {
+          "label": "Breadcrumb Level 1 Href",
+          "placeholder": ""
+        },
+        "type": "Text"
       },
       "breadcrumb_level_2_label": {
-        "type": "Text",
-        "config": { "label": "Breadcrumb Level 2 Label", "placeholder": "" }
+        "config": {
+          "label": "Breadcrumb Level 2 Label",
+          "placeholder": ""
+        },
+        "type": "Text"
       },
       "breadcrumb_level_2_href": {
-        "type": "Text",
-        "config": { "label": "Breadcrumb Level 2 Href", "placeholder": "" }
+        "config": {
+          "label": "Breadcrumb Level 2 Href",
+          "placeholder": ""
+        },
+        "type": "Text"
       },
       "breadcrumb_level_3_label": {
-        "type": "Text",
-        "config": { "label": "Breadcrumb Level 3 Label", "placeholder": "" }
+        "config": {
+          "label": "Breadcrumb Level 3 Label",
+          "placeholder": ""
+        },
+        "type": "Text"
       },
       "breadcrumb_level_3_href": {
-        "type": "Text",
-        "config": { "label": "Breadcrumb Level 3 Href", "placeholder": "" }
+        "config": {
+          "label": "Breadcrumb Level 3 Href",
+          "placeholder": ""
+        },
+        "type": "Text"
       },
       "heading": {
-        "type": "Slices",
-        "fieldset": "Heading Slice Zone",
         "config": {
           "choices": {
-            "page_title": { "type": "SharedSlice" },
-            "breadcrumbs": { "type": "SharedSlice" },
-            "hero_banner": { "type": "SharedSlice" }
+            "page_title": {
+              "type": "SharedSlice"
+            },
+            "breadcrumbs": {
+              "type": "SharedSlice"
+            },
+            "hero_banner": {
+              "type": "SharedSlice"
+            }
           }
-        }
+        },
+        "fieldset": "Heading Slice Zone",
+        "type": "Slices"
       }
     },
     "Main": {
       "main": {
-        "type": "Slices",
-        "fieldset": "Main Slice Zone",
         "config": {
           "choices": {
-            "cta_banner": { "type": "SharedSlice" },
-            "faq_question_list": { "type": "SharedSlice" },
-            "rich_text_section": { "type": "SharedSlice" },
-            "info_card_list": { "type": "SharedSlice" },
-            "image_block": { "type": "SharedSlice" },
-            "button_link": { "type": "SharedSlice" }
+            "cta_banner": {
+              "type": "SharedSlice"
+            },
+            "faq_question_list": {
+              "type": "SharedSlice"
+            },
+            "rich_text_section": {
+              "type": "SharedSlice"
+            },
+            "info_card_list": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "button_link": {
+              "type": "SharedSlice"
+            }
           }
-        }
+        },
+        "fieldset": "Main Slice Zone",
+        "type": "Slices"
       }
     },
     "Aside": {
       "aside": {
-        "type": "Slices",
-        "fieldset": "Aside Slice Zone",
         "config": {
           "choices": {
-            "cta_banner": { "type": "SharedSlice" },
-            "faq_question_list": { "type": "SharedSlice" }
+            "cta_banner": {
+              "type": "SharedSlice"
+            },
+            "faq_question_list": {
+              "type": "SharedSlice"
+            }
           }
-        }
+        },
+        "fieldset": "Aside Slice Zone",
+        "type": "Slices"
       }
     },
     "Footer": {
       "footer": {
-        "type": "Slices",
-        "fieldset": "Footer Slice Zone",
         "config": {
           "choices": {
-            "newsletter_signup": { "type": "SharedSlice" },
-            "social_links": { "type": "SharedSlice" }
+            "newsletter_signup": {
+              "type": "SharedSlice"
+            },
+            "social_links": {
+              "type": "SharedSlice"
+            }
           }
-        }
+        },
+        "fieldset": "Footer Slice Zone",
+        "type": "Slices"
       }
     }
-  }
+  },
+  "label": "Content Page",
+  "repeatable": true,
+  "status": true
 }

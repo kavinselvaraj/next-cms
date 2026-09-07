@@ -1,35 +1,50 @@
 {
-  "id": "hero_banner",
-  "type": "SharedSlice",
-  "name": "HeroBanner",
   "description": "HeroBanner",
+  "id": "hero_banner",
+  "name": "HeroBanner",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
-      "docURL": "...",
-      "version": "initial",
       "description": "Default",
+      "docURL": "...",
+      "id": "default",
       "imageUrl": "",
+      "items": {},
+      "name": "Default",
       "primary": {
         "title": {
-          "type": "StructuredText",
-          "config": { "single": "heading1", "label": "Title", "placeholder": "" }
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "single": "heading1"
+          },
+          "type": "StructuredText"
         },
         "image": {
-          "type": "Image",
-          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+          "config": {
+            "constraint": {},
+            "label": "Image",
+            "thumbnails": []
+          },
+          "type": "Image"
         },
         "cta_label": {
-          "type": "Text",
-          "config": { "label": "CTA Label", "placeholder": "" }
+          "config": {
+            "label": "CTA Label",
+            "placeholder": ""
+          },
+          "type": "Text"
         },
         "cta_link": {
-          "type": "Link",
-          "config": { "label": "CTA Link", "placeholder": "", "allowTargetBlank": true }
+          "config": {
+            "allowTargetBlank": true,
+            "label": "CTA Link",
+            "placeholder": ""
+          },
+          "type": "Link"
         }
       },
-      "items": {}
+      "version": "initial"
     }
   ]
 }

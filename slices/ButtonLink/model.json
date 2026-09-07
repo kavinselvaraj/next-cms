@@ -1,27 +1,34 @@
 {
-  "id": "button_link",
-  "type": "SharedSlice",
-  "name": "ButtonLink",
   "description": "A single centered outline button linking to another page",
+  "id": "button_link",
+  "name": "ButtonLink",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
-      "docURL": "https://prismic.io/docs/slices",
-      "version": "initial",
       "description": "Centered outline button",
+      "docURL": "https://prismic.io/docs/slices",
+      "id": "default",
       "imageUrl": "",
+      "items": {},
+      "name": "Default",
       "primary": {
         "label": {
-          "type": "Text",
-          "config": { "label": "Label", "placeholder": "" }
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          },
+          "type": "Text"
         },
         "link": {
-          "type": "Link",
-          "config": { "label": "Link", "placeholder": "", "allowTargetBlank": true }
+          "config": {
+            "allowTargetBlank": true,
+            "label": "Link",
+            "placeholder": ""
+          },
+          "type": "Link"
         }
       },
-      "items": {}
+      "version": "initial"
     }
   ]
 }

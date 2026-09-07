@@ -1,92 +1,105 @@
 {
-  "id": "rich_text_section",
-  "type": "SharedSlice",
-  "name": "RichTextSection",
   "description": "Heading + body text block, optionally with inline links",
+  "id": "rich_text_section",
+  "name": "RichTextSection",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
-      "docURL": "https://prismic.io/docs/slices",
-      "version": "initial",
       "description": "Heading and body text",
+      "docURL": "https://prismic.io/docs/slices",
+      "id": "default",
       "imageUrl": "",
-      "primary": {
-        "heading": {
-          "type": "StructuredText",
-          "config": {
-            "single": "heading2,heading3",
-            "label": "Heading",
-            "placeholder": "",
-            "labels": ["underline"]
-          }
-        },
-        "body": {
-          "type": "StructuredText",
-          "config": {
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
-            "label": "Body",
-            "placeholder": "",
-            "labels": ["small", "large", "muted", "accent"],
-            "font_size": {
-              "type": "Select",
-              "options": ["Small", "Medium", "Large"],
-              "default_value": "Medium"
-            },
-            "font_color": {
-              "type": "Select",
-              "options": ["Default", "Muted", "Accent"],
-              "default_value": "Default"
-            }
-          }
-        },
-        "font_size": {
-          "type": "Select",
-          "config": {
-            "label": "Font Size",
-            "options": ["Small", "Medium", "Large"],
-            "default_value": "Medium",
-            "placeholder": ""
-          }
-        },
-        "font_color": {
-          "type": "Select",
-          "config": {
-            "label": "Font Color",
-            "options": ["Default", "Muted", "Accent"],
-            "default_value": "Default",
-            "placeholder": ""
-          }
-        }
-      },
       "items": {
         "text": {
-          "type": "StructuredText",
           "config": {
-            "single": "paragraph,strong,em,hyperlink",
             "label": "Line Text",
-            "placeholder": ""
-          }
+            "placeholder": "",
+            "single": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
         },
         "font_size": {
-          "type": "Select",
           "config": {
-            "label": "Font Size",
-            "options": ["Small", "Medium", "Large"],
             "default_value": "Medium",
+            "label": "Font Size",
+            "options": [
+              "Small",
+              "Medium",
+              "Large"
+            ],
             "placeholder": ""
-          }
+          },
+          "type": "Select"
         },
         "font_color": {
-          "type": "Select",
           "config": {
-            "label": "Font Color",
-            "options": ["Default", "Muted", "Accent"],
             "default_value": "Default",
+            "label": "Font Color",
+            "options": [
+              "Default",
+              "Muted",
+              "Accent"
+            ],
             "placeholder": ""
-          }
+          },
+          "type": "Select"
         }
-      }
+      },
+      "name": "Default",
+      "primary": {
+        "heading": {
+          "config": {
+            "label": "Heading",
+            "labels": [
+              "underline"
+            ],
+            "placeholder": "",
+            "single": "heading2,heading3"
+          },
+          "type": "StructuredText"
+        },
+        "body": {
+          "config": {
+            "label": "Body",
+            "labels": [
+              "small",
+              "large",
+              "muted",
+              "accent"
+            ],
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "placeholder": ""
+          },
+          "type": "StructuredText"
+        },
+        "font_size": {
+          "config": {
+            "default_value": "Medium",
+            "label": "Font Size",
+            "options": [
+              "Small",
+              "Medium",
+              "Large"
+            ],
+            "placeholder": ""
+          },
+          "type": "Select"
+        },
+        "font_color": {
+          "config": {
+            "default_value": "Default",
+            "label": "Font Color",
+            "options": [
+              "Default",
+              "Muted",
+              "Accent"
+            ],
+            "placeholder": ""
+          },
+          "type": "Select"
+        }
+      },
+      "version": "initial"
     }
   ]
 }

@@ -1,27 +1,34 @@
 {
-  "id": "image_block",
-  "type": "SharedSlice",
-  "name": "ImageBlock",
   "description": "A single image with an optional caption",
+  "id": "image_block",
+  "name": "ImageBlock",
+  "type": "SharedSlice",
   "variations": [
     {
-      "id": "default",
-      "name": "Default",
-      "docURL": "https://prismic.io/docs/slices",
-      "version": "initial",
       "description": "Image with optional caption",
+      "docURL": "https://prismic.io/docs/slices",
+      "id": "default",
       "imageUrl": "",
+      "items": {},
+      "name": "Default",
       "primary": {
         "image": {
-          "type": "Image",
-          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+          "config": {
+            "constraint": {},
+            "label": "Image",
+            "thumbnails": []
+          },
+          "type": "Image"
         },
         "caption": {
-          "type": "Text",
-          "config": { "label": "Caption", "placeholder": "" }
+          "config": {
+            "label": "Caption",
+            "placeholder": ""
+          },
+          "type": "Text"
         }
       },
-      "items": {}
+      "version": "initial"
     }
   ]
 }
