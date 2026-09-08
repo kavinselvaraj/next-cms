@@ -75,27 +75,44 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
   }
 
   if (slice.variation === "footer_grid") {
+    const links = (
+      <ul className="flex list-none flex-col gap-2 p-0">
+        {slice.items.map((item, index) => (
+          <li key={`${item.question}-${index}`}>
+            {item.href ? (
+              <a href={item.href} className="text-primary no-underline hover:underline">
+                {item.question}
+              </a>
+            ) : (
+              <span>{item.question}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    );
+
     return (
       <div
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
       >
-        <div className="mb-3 font-bold">
-          <PrismicRichText field={slice.primary.heading} components={headingComponents} />
+        {/* Desktop/tablet: always-visible title + link list */}
+        <div className="hidden sm:block">
+          <div className="mb-3 font-bold">
+            <PrismicRichText field={slice.primary.heading} components={headingComponents} />
+          </div>
+          {links}
         </div>
-        <ul className="flex list-none flex-col gap-2 p-0">
-          {slice.items.map((item, index) => (
-            <li key={`${item.question}-${index}`}>
-              {item.href ? (
-                <a href={item.href} className="text-primary no-underline hover:underline">
-                  {item.question}
-                </a>
-              ) : (
-                <span>{item.question}</span>
-              )}
-            </li>
-          ))}
-        </ul>
+
+        {/* Mobile: collapsible accordion */}
+        <Accordion type="single" collapsible className="border-b sm:hidden">
+          <AccordionItem value="category" className="border-t border-b-0">
+            <AccordionTrigger className="items-center! gap-3 py-3!">
+              <PrismicRichText field={slice.primary.heading} components={headingComponents} />
+            </AccordionTrigger>
+            <AccordionContent>{links}</AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     );
   }
