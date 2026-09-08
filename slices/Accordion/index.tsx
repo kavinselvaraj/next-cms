@@ -2,43 +2,36 @@ import { Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
-export type AccordionProps = SliceComponentProps<Content.AccordionSlice>;
+import {
+  Accordion as AccordionRoot,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-function ChevronDown() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className="accordion-chevron"
-    >
-      <path d="m6 9 6 6 6-6" />
-    </svg>
-  );
-}
+export type AccordionProps = SliceComponentProps<Content.AccordionSlice>;
 
 export default function Accordion({ slice }: AccordionProps) {
   return (
-    <div
+    <AccordionRoot
+      type="multiple"
+      defaultValue={slice.items.map((_, index) => `item-${index}`)}
       className="accordion"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
       {slice.items.map((item, index) => (
-        <details className="accordion-item" open key={`${item.title}-${index}`}>
-          <summary className="accordion-summary">
+        <AccordionItem
+          value={`item-${index}`}
+          className="accordion-item"
+          key={`${item.title}-${index}`}
+        >
+          <AccordionTrigger className="accordion-trigger">
             <span className="accordion-number">{index + 1}</span>
             <span className="accordion-title">{item.title}</span>
-            <ChevronDown />
-          </summary>
+          </AccordionTrigger>
 
-          <div className="accordion-panel">
+          <AccordionContent className="accordion-panel">
             {item.note ? (
               <div className="accordion-note">
                 <p>{item.note}</p>
@@ -71,9 +64,9 @@ export default function Accordion({ slice }: AccordionProps) {
                 {item.link2_label}
               </PrismicNextLink>
             ) : null}
-          </div>
-        </details>
+          </AccordionContent>
+        </AccordionItem>
       ))}
-    </div>
+    </AccordionRoot>
   );
 }

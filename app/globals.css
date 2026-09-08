@@ -528,23 +528,17 @@ a.faq-list-row:hover {
 
 .accordion-item {
   border-top: 1px solid var(--border);
-  padding: 1rem 0;
+  padding: 0.25rem 0;
 }
 
 .accordion-item:last-child {
   border-bottom: 1px solid var(--border);
 }
 
-.accordion-summary {
-  display: flex;
-  align-items: center;
+.accordion-trigger {
+  align-items: center !important;
   gap: 0.75rem;
-  cursor: pointer;
-  list-style: none;
-}
-
-.accordion-summary::-webkit-details-marker {
-  display: none;
+  padding: 0.75rem 0 !important;
 }
 
 .accordion-number {
@@ -560,18 +554,8 @@ a.faq-list-row:hover {
   color: var(--text);
 }
 
-.accordion-chevron {
-  color: var(--text-muted);
-  flex-shrink: 0;
-  transition: transform 0.15s ease;
-}
-
-.accordion-item[open] .accordion-chevron {
-  transform: rotate(180deg);
-}
-
 .accordion-panel {
-  padding: 1rem 0 0 2rem;
+  padding: 0 0 0.5rem 2rem !important;
 }
 
 .accordion-panel p {
