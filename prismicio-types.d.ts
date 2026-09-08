@@ -473,65 +473,110 @@ type CalloutSliceVariation = CalloutSliceDefault
 export type CalloutSlice = prismic.SharedSlice<"callout", CalloutSliceVariation>;
 
 /**
- * Primary content in *DisclosureList → Items*
+ * Item in *DisclosureList → Default → Primary → Files*
  */
-export interface DisclosureListSliceDefaultItem {
+export interface DisclosureListSliceDefaultPrimaryFilesItem {
 	/**
-	 * Title field in *DisclosureList → Items*
+	 * Label field in *DisclosureList → Default → Primary → Files*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: disclosure_list.items[].title
+	 * - **API ID Path**: disclosure_list.default.primary.files[].label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	label: prismic.KeyTextField;
+	
+	/**
+	 * File field in *DisclosureList → Default → Primary → Files*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: disclosure_list.default.primary.files[].file
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	file: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+	
+	/**
+	 * File Size field in *DisclosureList → Default → Primary → Files*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: disclosure_list.default.primary.files[].file_size
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	file_size: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *DisclosureList → Default → Primary*
+ */
+export interface DisclosureListSliceDefaultPrimary {
+	/**
+	 * Title field in *DisclosureList → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: disclosure_list.default.primary.title
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	title: prismic.KeyTextField;
 	
 	/**
-	 * Body field in *DisclosureList → Items*
+	 * Body field in *DisclosureList → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: disclosure_list.items[].body
+	 * - **API ID Path**: disclosure_list.default.primary.body
 	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
 	body: prismic.RichTextField;
 	
 	/**
-	 * Box Heading field in *DisclosureList → Items*
+	 * Box Heading field in *DisclosureList → Default → Primary*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: disclosure_list.items[].box_heading
+	 * - **API ID Path**: disclosure_list.default.primary.box_heading
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	box_heading: prismic.KeyTextField;
 	
 	/**
-	 * Box Body field in *DisclosureList → Items*
+	 * Box Body field in *DisclosureList → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: disclosure_list.items[].box_body
+	 * - **API ID Path**: disclosure_list.default.primary.box_body
 	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
 	box_body: prismic.RichTextField;
 	
 	/**
-	 * Link Label field in *DisclosureList → Items*
+	 * Files field in *DisclosureList → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: disclosure_list.default.primary.files[]
+	 * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+	 */
+	files: prismic.GroupField<Simplify<DisclosureListSliceDefaultPrimaryFilesItem>>;
+	
+	/**
+	 * Link Label field in *DisclosureList → Default → Primary*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: disclosure_list.items[].link_label
+	 * - **API ID Path**: disclosure_list.default.primary.link_label
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	link_label: prismic.KeyTextField;
 	
 	/**
-	 * Link field in *DisclosureList → Items*
+	 * Link field in *DisclosureList → Default → Primary*
 	 *
 	 * - **Field Type**: Link
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: disclosure_list.items[].link
+	 * - **API ID Path**: disclosure_list.default.primary.link
 	 * - **Documentation**: https://prismic.io/docs/fields/link
 	 */
 	link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
@@ -541,10 +586,10 @@ export interface DisclosureListSliceDefaultItem {
  * Default variation for DisclosureList Slice
  *
  * - **API ID**: `default`
- * - **Description**: Toggleable sections
+ * - **Description**: Toggleable section
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type DisclosureListSliceDefault = prismic.SharedSliceVariation<"default", Record<string, never>, Simplify<DisclosureListSliceDefaultItem>>;
+export type DisclosureListSliceDefault = prismic.SharedSliceVariation<"default", Simplify<DisclosureListSliceDefaultPrimary>, never>;
 
 /**
  * Slice variation for *DisclosureList*
@@ -555,7 +600,7 @@ type DisclosureListSliceVariation = DisclosureListSliceDefault
  * DisclosureList Shared Slice
  *
  * - **API ID**: `disclosure_list`
- * - **Description**: Unnumbered collapsible sections, each with an optional highlighted box and link (e.g. eligibility/policy details)
+ * - **Description**: One collapsible topic, with an optional highlighted box, an optional list of download buttons inside that box, and an optional trailing link
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type DisclosureListSlice = prismic.SharedSlice<"disclosure_list", DisclosureListSliceVariation>;
@@ -1363,7 +1408,8 @@ declare module "@prismicio/client" {
 			CalloutSliceVariation,
 			CalloutSliceDefault,
 			DisclosureListSlice,
-			DisclosureListSliceDefaultItem,
+			DisclosureListSliceDefaultPrimaryFilesItem,
+			DisclosureListSliceDefaultPrimary,
 			DisclosureListSliceVariation,
 			DisclosureListSliceDefault,
 			FaqAnswerSwapSlice,

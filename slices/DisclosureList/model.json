@@ -2,17 +2,16 @@
   "id": "disclosure_list",
   "type": "SharedSlice",
   "name": "DisclosureList",
-  "description": "Unnumbered collapsible sections, each with an optional highlighted box and link (e.g. eligibility/policy details)",
+  "description": "One collapsible topic, with an optional highlighted box, an optional list of download buttons inside that box, and an optional trailing link",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "https://prismic.io/docs/slices",
       "version": "initial",
-      "description": "Toggleable sections",
+      "description": "Toggleable section",
       "imageUrl": "",
-      "primary": {},
-      "items": {
+      "primary": {
         "title": {
           "type": "Text",
           "config": { "label": "Title", "placeholder": "" }
@@ -37,6 +36,26 @@
             "placeholder": ""
           }
         },
+        "files": {
+          "type": "Group",
+          "config": {
+            "label": "Files",
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": { "label": "Label", "placeholder": "" }
+              },
+              "file": {
+                "type": "Link",
+                "config": { "label": "File", "placeholder": "", "allowTargetBlank": true }
+              },
+              "file_size": {
+                "type": "Text",
+                "config": { "label": "File Size", "placeholder": "" }
+              }
+            }
+          }
+        },
         "link_label": {
           "type": "Text",
           "config": { "label": "Link Label", "placeholder": "" }
@@ -45,7 +64,8 @@
           "type": "Link",
           "config": { "label": "Link", "placeholder": "", "allowTargetBlank": true }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }
