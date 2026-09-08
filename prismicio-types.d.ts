@@ -154,17 +154,6 @@ interface ContentPageDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/slices
 	 */
 	aside: prismic.SliceZone<ContentPageDocumentDataAsideSlice>;/**
-	 * Footer Mobile Heading field in *Content Page*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: e.g. User Guide (shown above the footer on mobile only)
-	 * - **API ID Path**: content_page.footer_mobile_heading
-	 * - **Tab**: Footer
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	footer_mobile_heading: prismic.KeyTextField;
-	
-	/**
 	 * Footer Slice Zone field in *Content Page*
 	 *
 	 * - **Field Type**: Slice Zone
@@ -808,6 +797,16 @@ export interface FaqQuestionListSliceFooterGridPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
 	heading: prismic.RichTextField;
+	
+	/**
+	 * Mobile Section Heading field in *FaqQuestionList → footer_grid → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: e.g. User Guide -- set on the first tile only, shown above the whole grid on mobile
+	 * - **API ID Path**: faq_question_list.footer_grid.primary.mobile_section_heading
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	mobile_section_heading: prismic.KeyTextField;
 }
 
 /**
