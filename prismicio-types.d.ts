@@ -154,6 +154,17 @@ interface ContentPageDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/slices
 	 */
 	aside: prismic.SliceZone<ContentPageDocumentDataAsideSlice>;/**
+	 * Footer Mobile Heading field in *Content Page*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: e.g. User Guide (shown above the footer on mobile only)
+	 * - **API ID Path**: content_page.footer_mobile_heading
+	 * - **Tab**: Footer
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	footer_mobile_heading: prismic.KeyTextField;
+	
+	/**
 	 * Footer Slice Zone field in *Content Page*
 	 *
 	 * - **Field Type**: Slice Zone
