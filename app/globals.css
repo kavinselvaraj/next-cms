@@ -237,24 +237,23 @@ a.faq-list-row:hover {
 
 /* FaqQuestionList slice: accordion variation (category sidebar) */
 .faq-category {
+  display: block;
   border-top: 1px solid var(--border);
-  padding: 0.75rem 0;
+  padding: 0.25rem 0;
 }
 
-.faq-category:last-child {
+.faq-category:last-of-type {
   border-bottom: 1px solid var(--border);
 }
 
-.faq-category-summary {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  cursor: pointer;
-  list-style: none;
+.faq-category-item {
+  border-bottom: none !important;
 }
 
-.faq-category-summary::-webkit-details-marker {
-  display: none;
+.faq-category-summary {
+  align-items: center !important;
+  gap: 0.75rem;
+  padding: 0.5rem 0 !important;
 }
 
 .faq-category-summary > * {
@@ -266,16 +265,6 @@ a.faq-list-row:hover {
   flex: 1;
   font-size: 1rem;
   font-weight: 700;
-}
-
-.faq-category-chevron {
-  color: var(--text-muted);
-  flex-shrink: 0;
-  transition: transform 0.15s ease;
-}
-
-.faq-category[open] .faq-category-chevron {
-  transform: rotate(90deg);
 }
 
 .faq-category-items {
@@ -416,14 +405,10 @@ a.faq-list-row:hover {
 
 .info-card {
   background: var(--row-hover);
-  border-radius: 6px;
-  padding: 1.25rem 1.5rem;
 }
 
-.info-card h3 {
+.info-card [data-slot="card-title"] {
   font-size: 1rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem;
 }
 
 .info-card p {
@@ -463,33 +448,25 @@ a.faq-list-row:hover {
 }
 
 .button-link-cta {
-  display: inline-block;
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  border-radius: 4px;
-  padding: 0.75rem 2rem;
+  height: auto !important;
+  padding: 0.75rem 2rem !important;
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
   font-weight: 600;
-  text-decoration: none;
-  text-align: center;
 }
 
 .button-link-cta:hover {
-  background: var(--row-hover);
+  background: var(--row-hover) !important;
 }
 
 /* Callout slice: a bordered, colored box spanning multiple lines */
 .callout {
   margin: 2rem 0;
-  padding: 1.25rem 1.5rem;
-  border-radius: 6px;
   border: 1px solid var(--border);
 }
 
-.callout h3,
-.callout h4 {
-  margin: 0 0 0.5rem;
+.callout [data-slot="card-title"] {
   font-size: 1.05rem;
-  font-weight: 700;
 }
 
 .callout p {
@@ -636,23 +613,17 @@ a.faq-list-row:hover {
 
 .disclosure-item {
   border-top: 1px solid var(--border);
-  padding: 1rem 0;
+  padding: 0.25rem 0;
 }
 
 .disclosure-item:last-child {
   border-bottom: 1px solid var(--border);
 }
 
-.disclosure-summary {
-  display: flex;
-  align-items: center;
+.disclosure-trigger {
+  align-items: center !important;
   gap: 0.75rem;
-  cursor: pointer;
-  list-style: none;
-}
-
-.disclosure-summary::-webkit-details-marker {
-  display: none;
+  padding: 0.75rem 0 !important;
 }
 
 .disclosure-title {
@@ -661,18 +632,8 @@ a.faq-list-row:hover {
   color: var(--text);
 }
 
-.disclosure-chevron {
-  color: var(--text-muted);
-  flex-shrink: 0;
-  transition: transform 0.15s ease;
-}
-
-.disclosure-item[open] .disclosure-chevron {
-  transform: rotate(180deg);
-}
-
 .disclosure-panel {
-  padding: 1rem 0 0;
+  padding: 0 0 0.5rem !important;
 }
 
 .disclosure-panel p {
@@ -722,18 +683,22 @@ a.faq-list-row:hover {
 }
 
 .file-download-button {
-  display: block;
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  border-radius: 4px;
-  padding: 0.75rem 1.5rem;
+  width: 100%;
+  height: auto !important;
+  padding: 0.75rem 1.5rem !important;
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
   font-weight: 600;
-  text-decoration: none;
-  text-align: center;
 }
 
 .file-download-button:hover {
-  background: var(--row-hover);
+  background: var(--row-hover) !important;
+}
+
+.file-download-button:disabled {
+  opacity: 1;
+  color: var(--text-muted) !important;
+  border-color: var(--border) !important;
 }
 
 .file-download-size {

@@ -2,6 +2,8 @@ import { Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 
+import { Button } from "@/components/ui/button";
+
 export type FileDownloadListProps =
   SliceComponentProps<Content.FileDownloadListSlice>;
 
@@ -15,11 +17,13 @@ export default function FileDownloadList({ slice }: FileDownloadListProps) {
       {slice.items.map((item, index) => (
         <div className="file-download-item" key={`${item.label}-${index}`}>
           {isFilled.link(item.file) ? (
-            <PrismicNextLink field={item.file} className="file-download-button">
-              {item.label}
-            </PrismicNextLink>
+            <Button asChild variant="outline" className="file-download-button">
+              <PrismicNextLink field={item.file}>{item.label}</PrismicNextLink>
+            </Button>
           ) : (
-            <span className="file-download-button">{item.label}</span>
+            <Button variant="outline" disabled className="file-download-button">
+              {item.label}
+            </Button>
           )}
           {item.file_size ? (
             <p className="file-download-size">File Size: {item.file_size}</p>
