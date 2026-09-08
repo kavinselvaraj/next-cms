@@ -51,6 +51,31 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
     );
   }
 
+  if (slice.variation === "grid") {
+    return (
+      <section
+        className="faq-topic-group"
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+      >
+        <div className="faq-topic-group-heading">
+          <PrismicRichText field={slice.primary.heading} />
+        </div>
+        <div className="faq-topic-links">
+          {slice.items.map((item, index) =>
+            item.href ? (
+              <a key={`${item.question}-${index}`} href={item.href}>
+                {item.question}
+              </a>
+            ) : (
+              <span key={`${item.question}-${index}`}>{item.question}</span>
+            ),
+          )}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       className="faq-list"
