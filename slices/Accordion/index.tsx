@@ -1,5 +1,4 @@
 import { Content, isFilled } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 import {
@@ -8,6 +7,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ChevronLink } from "@/components/prismic/chevron-link";
+import { richTextLabelComponents } from "@/lib/rich-text-components";
 
 export type AccordionProps = SliceComponentProps<Content.AccordionSlice>;
 
@@ -38,7 +39,7 @@ export default function Accordion({ slice }: AccordionProps) {
               </div>
             ) : null}
 
-            <PrismicRichText field={item.body} />
+            <PrismicRichText field={item.body} components={richTextLabelComponents} />
 
             {isFilled.richText(item.necessities) ? (
               <>
@@ -48,27 +49,17 @@ export default function Accordion({ slice }: AccordionProps) {
                   </p>
                 ) : null}
                 <div className="mb-4 rounded border px-5 py-4 [&_h4:not(:first-child)]:mt-4 [&_h4]:mb-1 [&_h4]:text-[0.95rem] [&_h4]:font-bold [&_p]:m-0 [&_p]:text-[0.9rem] [&_p]:text-muted-foreground">
-                  <PrismicRichText field={item.necessities} />
+                  <PrismicRichText field={item.necessities} components={richTextLabelComponents} />
                 </div>
               </>
             ) : null}
 
             {isFilled.link(item.link) ? (
-              <PrismicNextLink
-                field={item.link}
-                className="mb-2 flex items-center gap-1 font-semibold text-primary no-underline last:mb-0 hover:underline after:content-['\203A']"
-              >
-                {item.link_label}
-              </PrismicNextLink>
+              <ChevronLink field={item.link}>{item.link_label}</ChevronLink>
             ) : null}
 
             {isFilled.link(item.link2) ? (
-              <PrismicNextLink
-                field={item.link2}
-                className="mb-2 flex items-center gap-1 font-semibold text-primary no-underline last:mb-0 hover:underline after:content-['\203A']"
-              >
-                {item.link2_label}
-              </PrismicNextLink>
+              <ChevronLink field={item.link2}>{item.link2_label}</ChevronLink>
             ) : null}
           </AccordionContent>
         </AccordionItem>

@@ -1,5 +1,4 @@
 import { Content, isFilled } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 import {
@@ -8,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ChevronLink } from "@/components/prismic/chevron-link";
 
 export type DisclosureListProps = SliceComponentProps<Content.DisclosureListSlice>;
 
@@ -43,12 +43,9 @@ export default function DisclosureList({ slice }: DisclosureListProps) {
             ) : null}
 
             {isFilled.link(item.link) ? (
-              <PrismicNextLink
-                field={item.link}
-                className="font-semibold text-primary no-underline hover:underline"
-              >
+              <ChevronLink field={item.link} chevron={false}>
                 {item.link_label}
-              </PrismicNextLink>
+              </ChevronLink>
             ) : null}
           </AccordionContent>
         </AccordionItem>

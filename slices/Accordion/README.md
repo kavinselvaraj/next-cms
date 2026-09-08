@@ -24,7 +24,7 @@ No primary fields — everything lives on repeatable `items`.
 |---|---|---|---|
 | `title` | Text | Yes | The step's heading, shown next to its number. |
 | `note` | Text | No | A single-line highlighted note rendered in a `bg-muted` box above the body (e.g. "From 3 hours to 1 hour before departure"). |
-| `body` | Rich Text (multi: `paragraph,strong,em,hyperlink,list-item,o-list-item`; labels: `muted`, `small`) | No | Main step content. The `muted`/`small` toolbar labels are available for de-emphasizing inline text (e.g. an asterisked caveat). |
+| `body` | Rich Text (multi: `paragraph,strong,em,hyperlink,list-item,o-list-item`; labels: `muted`, `small`) | No | Main step content. The `muted`/`small` toolbar labels are available for de-emphasizing inline text (e.g. an asterisked caveat) — rendered via the shared [`richTextLabelComponents`](../../lib/rich-text-components.tsx) serializer. |
 | `necessities_heading` | Text | No | Heading above the "necessities" box (e.g. "Necessities"). Only rendered if `necessities` has content. |
 | `necessities` | Rich Text (multi: `heading4,paragraph,strong,em,hyperlink`) | No | A bordered checklist box. Use `heading4` blocks as sub-item titles followed by a `paragraph` — see example. |
 | `link_label` | Text | No | Label for the first trailing link. |
@@ -61,7 +61,7 @@ No primary fields — everything lives on repeatable `items`.
 
 - Number: `text-primary font-bold`. Title: `text-foreground font-bold`.
 - `note` box: `bg-muted`. `necessities` box: plain `border`, with `heading4` styled `text-[0.95rem] font-bold` and its paragraphs `text-muted-foreground text-[0.9rem]`.
-- Trailing links: shared chevron-link treatment (see [slice library conventions](../README.md#conventions-used-across-every-slice)).
+- Trailing links: shared [`ChevronLink`](../../components/prismic/chevron-link.tsx) component (see [slice library conventions](../README.md#conventions-used-across-every-slice)).
 - shadcn's default `AccordionItem` border classes are overridden (`border-t! border-b-0! last:border-b!`) to get one divider between items instead of Radix's default (which would double up with this slice's own top border).
 
 ## Known limitations

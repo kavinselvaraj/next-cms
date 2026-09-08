@@ -1,6 +1,7 @@
 import { Content, isFilled } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+
+import { ChevronLink } from "@/components/prismic/chevron-link";
 
 export type LinkListProps = SliceComponentProps<Content.LinkListSlice>;
 
@@ -26,13 +27,9 @@ export default function LinkList({ slice }: LinkListProps) {
 
       {slice.items.map((item, index) =>
         isFilled.link(item.link) ? (
-          <PrismicNextLink
-            key={`${item.label}-${index}`}
-            field={item.link}
-            className="mb-2 flex items-center gap-1 font-semibold text-primary no-underline last:mb-0 hover:underline after:content-['\203A']"
-          >
+          <ChevronLink key={`${item.label}-${index}`} field={item.link}>
             {item.label}
-          </PrismicNextLink>
+          </ChevronLink>
         ) : null,
       )}
     </div>

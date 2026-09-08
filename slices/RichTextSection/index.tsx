@@ -1,25 +1,11 @@
 import { Content } from "@prismicio/client";
-import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 import { cn } from "@/lib/utils";
+import { richTextLabelComponents } from "@/lib/rich-text-components";
 
 export type RichTextSectionProps =
   SliceComponentProps<Content.RichTextSectionSlice>;
-
-const labelClasses: Record<string, string> = {
-  underline: "underline",
-  small: "text-[0.875em]",
-  large: "text-[1.125em]",
-  muted: "text-muted-foreground",
-  accent: "text-primary",
-  highlight: "rounded-sm bg-[#fff3b0] px-0.5 py-px",
-};
-
-const richTextComponents: JSXMapSerializer = {
-  label: ({ node, children }) => (
-    <span className={labelClasses[node.data.label] ?? ""}>{children}</span>
-  ),
-};
 
 const sizeClasses: Record<string, string> = {
   Small: "text-sm",
@@ -47,8 +33,8 @@ export default function RichTextSection({ slice }: RichTextSectionProps) {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <PrismicRichText field={slice.primary.heading} components={richTextComponents} />
-      <PrismicRichText field={slice.primary.body} components={richTextComponents} />
+      <PrismicRichText field={slice.primary.heading} components={richTextLabelComponents} />
+      <PrismicRichText field={slice.primary.body} components={richTextLabelComponents} />
 
       {slice.items.map((item, index) => {
         const itemFontSize = item.font_size || "Medium";
@@ -63,7 +49,7 @@ export default function RichTextSection({ slice }: RichTextSectionProps) {
             )}
             key={index}
           >
-            <PrismicRichText field={item.text} components={richTextComponents} />
+            <PrismicRichText field={item.text} components={richTextLabelComponents} />
           </div>
         );
       })}
