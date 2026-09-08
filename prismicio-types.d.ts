@@ -357,13 +357,44 @@ export interface ButtonLinkSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/link
 	 */
 	link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+	
+	/**
+	 * Style field in *ButtonLink → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Outline
+	 * - **API ID Path**: button_link.default.primary.style
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	style: prismic.SelectField<"Solid" | "Outline", "filled">;
+	
+	/**
+	 * Icon left field in *ButtonLink → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: None
+	 * - **API ID Path**: button_link.default.primary.icon_left
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	icon_left: prismic.SelectField<"ArrowLeft" | "ArrowRight" | "ChevronLeft" | "ChevronRight" | "Download" | "ExternalLink" | "Check">;
+	
+	/**
+	 * Icon right field in *ButtonLink → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: None
+	 * - **API ID Path**: button_link.default.primary.icon_right
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	icon_right: prismic.SelectField<"ArrowLeft" | "ArrowRight" | "ChevronLeft" | "ChevronRight" | "Download" | "ExternalLink" | "Check">;
 }
 
 /**
  * Default variation for ButtonLink Slice
  *
  * - **API ID**: `default`
- * - **Description**: Centered outline button
+ * - **Description**: Centered button (solid or outline) with optional icons
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type ButtonLinkSliceDefault = prismic.SharedSliceVariation<"default", Simplify<ButtonLinkSliceDefaultPrimary>, never>;
@@ -377,7 +408,7 @@ type ButtonLinkSliceVariation = ButtonLinkSliceDefault
  * ButtonLink Shared Slice
  *
  * - **API ID**: `button_link`
- * - **Description**: A single centered outline button linking to another page
+ * - **Description**: A single centered button linking to another page, with optional left/right icon and solid/outline style
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type ButtonLinkSlice = prismic.SharedSlice<"button_link", ButtonLinkSliceVariation>;
