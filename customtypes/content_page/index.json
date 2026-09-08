@@ -86,6 +86,9 @@
             "disclosure_list": {
               "type": "SharedSlice"
             },
+            "faq_answer_swap": {
+              "type": "SharedSlice"
+            },
             "faq_question_list": {
               "type": "SharedSlice"
             },

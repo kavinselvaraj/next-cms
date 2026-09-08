@@ -23,6 +23,7 @@ The page layout itself (`app/[uid]/page.tsx`) is a responsive grid: Main + Aside
 | [`ButtonLink`](ButtonLink/README.md) | A single centered outline CTA button | `default` |
 | [`Callout`](Callout/README.md) | A bordered, colored box for a note/warning/highlight | `default` |
 | [`DisclosureList`](DisclosureList/README.md) | Unnumbered collapsible sections with an optional box + link | `default` |
+| [`FaqAnswerSwap`](FaqAnswerSwap/README.md) | Client-side Q&A card with a related-question switcher (no navigation) | `default` |
 | [`FaqQuestionList`](FaqQuestionList/README.md) | FAQ category/question lists — 5 different layouts | `default`, `grid`, `accordion`, `footer_grid`, `withicon` |
 | [`FileDownloadList`](FileDownloadList/README.md) | Outline download buttons with a file-size caption | `default` |
 | [`ImageBlock`](ImageBlock/README.md) | A single image with an optional caption | `default` |
@@ -40,3 +41,4 @@ The page layout itself (`app/[uid]/page.tsx`) is a responsive grid: Main + Aside
 - **Chevron links**: any slice offering a single "read more"-style trailing link (`Accordion`, `DisclosureList`, `LinkList`) uses the same visual treatment — `font-semibold text-primary`, a trailing `›` via `after:content-['\203A']`.
 - **Placeholder links**: when authoring content for a slice's `Link` field before the real destination page/asset exists, this project's convention is `#`, not a guessed URL.
 - **Flat-slice limitation**: Prismic shared slices cannot nest a repeatable `Group` field inside another repeatable `items` zone (confirmed by a rejected push — see `FaqQuestionList`'s `footer_grid` variation history). Where a design needs "N categories, each with M links," the fix used here is **one slice instance per category**, all sharing the same zone — never a nested structure.
+- **Server by default, client only when interactivity requires it**: every slice is a plain server component except [`FaqAnswerSwap`](FaqAnswerSwap/README.md), which needs local `useState` to swap its active item without a page navigation — it's the one slice marked `"use client"`. Default to a server component; reach for a client component only when the design needs in-place state that a link/navigation genuinely can't express.

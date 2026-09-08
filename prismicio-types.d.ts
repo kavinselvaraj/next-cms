@@ -50,7 +50,7 @@ type ContentRelationshipFieldWithData<
 
 type ContentPageDocumentDataHeadingSlice = PageTitleSlice | BreadcrumbsSlice
 
-type ContentPageDocumentDataMainSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | ImageBlockSlice | InfoCardListSlice | LinkListSlice | PageTitleSlice | RichTextSectionSlice
+type ContentPageDocumentDataMainSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | DisclosureListSlice | FaqAnswerSwapSlice | FaqQuestionListSlice | FileDownloadListSlice | ImageBlockSlice | InfoCardListSlice | LinkListSlice | PageTitleSlice | RichTextSectionSlice
 
 type ContentPageDocumentDataAsideSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | ImageBlockSlice | InfoCardListSlice | LinkListSlice | PageTitleSlice | RichTextSectionSlice
 
@@ -559,6 +559,69 @@ type DisclosureListSliceVariation = DisclosureListSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type DisclosureListSlice = prismic.SharedSlice<"disclosure_list", DisclosureListSliceVariation>;
+
+/**
+ * Primary content in *FaqAnswerSwap → Default → Primary*
+ */
+export interface FaqAnswerSwapSliceDefaultPrimary {
+	/**
+	 * Related heading field in *FaqAnswerSwap → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Related question
+	 * - **API ID Path**: faq_answer_swap.default.primary.related_heading
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	related_heading: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *FaqAnswerSwap → Items*
+ */
+export interface FaqAnswerSwapSliceDefaultItem {
+	/**
+	 * Question field in *FaqAnswerSwap → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_answer_swap.items[].question
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	question: prismic.KeyTextField;
+	
+	/**
+	 * Answer field in *FaqAnswerSwap → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_answer_swap.items[].answer
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	answer: prismic.RichTextField;
+}
+
+/**
+ * Default variation for FaqAnswerSwap Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Active question/answer card + related-question list
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FaqAnswerSwapSliceDefault = prismic.SharedSliceVariation<"default", Simplify<FaqAnswerSwapSliceDefaultPrimary>, Simplify<FaqAnswerSwapSliceDefaultItem>>;
+
+/**
+ * Slice variation for *FaqAnswerSwap*
+ */
+type FaqAnswerSwapSliceVariation = FaqAnswerSwapSliceDefault
+
+/**
+ * FaqAnswerSwap Shared Slice
+ *
+ * - **API ID**: `faq_answer_swap`
+ * - **Description**: A Q&A card with a related-question switcher that swaps the active answer client-side, no page navigation
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FaqAnswerSwapSlice = prismic.SharedSlice<"faq_answer_swap", FaqAnswerSwapSliceVariation>;
 
 /**
  * Primary content in *FaqQuestionList → Default → Primary*
@@ -1303,6 +1366,11 @@ declare module "@prismicio/client" {
 			DisclosureListSliceDefaultItem,
 			DisclosureListSliceVariation,
 			DisclosureListSliceDefault,
+			FaqAnswerSwapSlice,
+			FaqAnswerSwapSliceDefaultPrimary,
+			FaqAnswerSwapSliceDefaultItem,
+			FaqAnswerSwapSliceVariation,
+			FaqAnswerSwapSliceDefault,
 			FaqQuestionListSlice,
 			FaqQuestionListSliceDefaultPrimary,
 			FaqQuestionListSliceDefaultItem,

@@ -3,6 +3,7 @@ import Breadcrumbs from "./Breadcrumbs";
 import ButtonLink from "./ButtonLink";
 import Callout from "./Callout";
 import DisclosureList from "./DisclosureList";
+import FaqAnswerSwap from "./FaqAnswerSwap";
 import FaqQuestionList from "./FaqQuestionList";
 import FileDownloadList from "./FileDownloadList";
 import ImageBlock from "./ImageBlock";
@@ -21,6 +22,7 @@ export const components = {
   button_link: ButtonLink,
   callout: Callout,
   disclosure_list: DisclosureList,
+  faq_answer_swap: FaqAnswerSwap,
   faq_question_list: FaqQuestionList,
   file_download_list: FileDownloadList,
   image_block: ImageBlock,
