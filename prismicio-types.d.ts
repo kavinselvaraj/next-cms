@@ -738,6 +738,16 @@ export interface FaqQuestionListSliceAccordionPrimary {
 	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
 	heading: prismic.RichTextField;
+	
+	/**
+	 * Current Category (starts expanded) field in *FaqQuestionList → accordion → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: false
+	 * - **API ID Path**: faq_question_list.accordion.primary.current
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	current: prismic.BooleanField;
 }
 
 /**
