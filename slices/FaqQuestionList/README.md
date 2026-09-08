@@ -51,7 +51,7 @@ The question list for whichever category the current level-2/3 page belongs to.
 
 ### Rendering
 
-Each row: label + a right-pointing chevron icon, `hover:bg-accent` when it's a link. No numbering (dropped in favor of matching the reference design, which showed plain chevron rows).
+Each row: label + a right-pointing chevron icon, `hover:bg-accent` when it's a link. No numbering (dropped in favor of matching the reference design, which showed plain chevron rows). Rendered with `next/link`'s `Link` (not a raw `<a>`) so navigating between question pages is a client-side transition, not a full browser reload — see [Navigation note](#navigation-note-all-href-links-in-this-slice) below.
 
 ---
 
@@ -166,6 +166,10 @@ Why two trees instead of one that reflows: keeping desktop's "always expanded, n
 **Because `mobile_section_heading` is per-tile, remember to set it only once per category group** (the first tile) — setting it on every tile would repeat "User Guide" six times on mobile.
 
 ---
+
+### Navigation note (all `href` links in this slice)
+
+Every variation's `question`/`href` rows render via `next/link`'s `Link` component, not a plain `<a href>`. A raw anchor forces a full browser page reload on every click (visible white-flash, all React state/layout re-mounted); `Link` does a client-side transition instead — it fetches only the target route's payload and keeps shared layout (header/footer chrome, if any) mounted, so navigating between FAQ question pages feels instant rather than a hard refresh. This matters here specifically because these `href` values are plain Text-field strings (not a Prismic `Link` field), so `PrismicNextLink` doesn't apply — `next/link`'s `Link` is the equivalent for a plain string URL.
 
 ## Variation: `withicon`
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
@@ -59,9 +60,9 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
               {slice.items.map((item, index) => (
                 <li key={`${item.question}-${index}`}>
                   {item.href ? (
-                    <a href={item.href} className="text-primary no-underline hover:underline">
+                    <Link href={item.href} className="text-primary no-underline hover:underline">
                       {item.question}
-                    </a>
+                    </Link>
                   ) : (
                     <span>{item.question}</span>
                   )}
@@ -80,9 +81,9 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
         {slice.items.map((item, index) => (
           <li key={`${item.question}-${index}`}>
             {item.href ? (
-              <a href={item.href} className="text-primary no-underline hover:underline">
+              <Link href={item.href} className="text-primary no-underline hover:underline">
                 {item.question}
-              </a>
+              </Link>
             ) : (
               <span>{item.question}</span>
             )}
@@ -137,13 +138,13 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           {slice.items.map((item, index) =>
             item.href ? (
-              <a
+              <Link
                 key={`${item.question}-${index}`}
                 href={item.href}
                 className="text-primary underline"
               >
                 {item.question}
-              </a>
+              </Link>
             ) : (
               <span key={`${item.question}-${index}`}>{item.question}</span>
             ),
@@ -173,12 +174,12 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
           return (
             <li className="border-b" key={`${item.question}-${index}`}>
               {item.href ? (
-                <a
+                <Link
                   href={item.href}
                   className="flex items-center gap-4 rounded px-2 py-4 text-inherit no-underline hover:cursor-pointer hover:bg-accent"
                 >
                   {row}
-                </a>
+                </Link>
               ) : (
                 <div className="flex items-center gap-4 px-2 py-4">{row}</div>
               )}
