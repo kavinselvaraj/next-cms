@@ -52,7 +52,7 @@ No primary fields.
 
 ## Styling conventions
 
-- Trailing link uses the shared [`ChevronLink`](../../components/prismic/chevron-link.tsx) component with `chevron={false}` — same `font-semibold text-primary` color/weight as `Accordion`'s links, but *without* the trailing `›` or row spacing (a plain inline link, not a stacked row). Same `bg-muted` box treatment as `Accordion`. See [slice library conventions](../README.md#conventions-used-across-every-slice).
+- Trailing link uses the shared [`ChevronLink`](../../components/prismic/chevron-link.tsx) component with `chevron={false}` — same `font-semibold text-primary` color/weight as `Accordion`'s links, but *without* the trailing `›` or row spacing (a plain inline link, not a stacked row). Same `bg-muted` box treatment as `Accordion`, including the box's smaller `text-[0.9rem]` paragraph size vs. the main `body` text above it (matches the reference design's two font sizes — main intro text at normal size, the shaded sub-box at a visibly smaller size). See [slice library conventions](../README.md#conventions-used-across-every-slice).
 - Same `AccordionItem` border override pattern (`border-t! border-b-0! last:border-b!`) for a single divider between items.
 
 ## Known limitations

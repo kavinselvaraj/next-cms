@@ -34,7 +34,7 @@ export default function DisclosureList({ slice }: DisclosureListProps) {
             <PrismicRichText field={item.body} />
 
             {isFilled.richText(item.box_body) ? (
-              <div className="mb-4 rounded bg-muted px-5 py-4">
+              <div className="mb-4 rounded bg-muted px-5 py-4 [&_p]:text-[0.9rem] [&_p]:leading-relaxed">
                 {item.box_heading ? (
                   <h4 className="mb-2 text-[0.95rem] font-bold">{item.box_heading}</h4>
                 ) : null}
