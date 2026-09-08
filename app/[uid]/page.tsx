@@ -68,7 +68,7 @@ export default async function Page({ params }: PageProps) {
       ) : null}
 
       {hasFooter ? (
-        <footer className="md:col-span-2">
+        <footer className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4 md:col-span-2">
           <SliceZone
             slices={page.data.footer}
             components={components}

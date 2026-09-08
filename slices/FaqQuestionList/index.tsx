@@ -74,6 +74,32 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
     );
   }
 
+  if (slice.variation === "footer_grid") {
+    return (
+      <div
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+      >
+        <div className="mb-3 font-bold">
+          <PrismicRichText field={slice.primary.heading} components={headingComponents} />
+        </div>
+        <ul className="flex list-none flex-col gap-2 p-0">
+          {slice.items.map((item, index) => (
+            <li key={`${item.question}-${index}`}>
+              {item.href ? (
+                <a href={item.href} className="text-primary no-underline hover:underline">
+                  {item.question}
+                </a>
+              ) : (
+                <span>{item.question}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
   if (slice.variation === "grid") {
     return (
       <section

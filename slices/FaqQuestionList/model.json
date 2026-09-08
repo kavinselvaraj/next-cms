@@ -133,6 +133,37 @@
       "version": "initial"
     },
     {
+      "description": "Always-visible category tile for a multi-column footer grid (title + vertical link list, no collapse)",
+      "docURL": "https://prismic.io/docs/slices",
+      "id": "footer_grid",
+      "imageUrl": "",
+      "items": {
+        "question": {
+          "config": {
+            "label": "Question"
+          },
+          "type": "Text"
+        },
+        "href": {
+          "config": {
+            "label": "Href"
+          },
+          "type": "Text"
+        }
+      },
+      "name": "footer_grid",
+      "primary": {
+        "heading": {
+          "config": {
+            "label": "Heading",
+            "single": "heading2,heading3,strong,em"
+          },
+          "type": "StructuredText"
+        }
+      },
+      "version": "initial"
+    },
+    {
       "description": "Category page list of FAQ questions",
       "docURL": "https://prismic.io/docs/slices",
       "id": "withicon",
