@@ -785,6 +785,55 @@ export interface FaqQuestionListSliceAccordionItem {
 export type FaqQuestionListSliceAccordion = prismic.SharedSliceVariation<"accordion", Simplify<FaqQuestionListSliceAccordionPrimary>, Simplify<FaqQuestionListSliceAccordionItem>>;
 
 /**
+ * Primary content in *FaqQuestionList → footer_grid → Primary*
+ */
+export interface FaqQuestionListSliceFooterGridPrimary {
+	/**
+	 * Heading field in *FaqQuestionList → footer_grid → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.footer_grid.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *FaqQuestionList → Items*
+ */
+export interface FaqQuestionListSliceFooterGridItem {
+	/**
+	 * Question field in *FaqQuestionList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.items[].question
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	question: prismic.KeyTextField;
+	
+	/**
+	 * Href field in *FaqQuestionList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: faq_question_list.items[].href
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	href: prismic.KeyTextField;
+}
+
+/**
+ * footer_grid variation for FaqQuestionList Slice
+ *
+ * - **API ID**: `footer_grid`
+ * - **Description**: Always-visible category tile for a multi-column footer grid (title + vertical link list, no collapse)
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FaqQuestionListSliceFooterGrid = prismic.SharedSliceVariation<"footer_grid", Simplify<FaqQuestionListSliceFooterGridPrimary>, Simplify<FaqQuestionListSliceFooterGridItem>>;
+
+/**
  * Primary content in *FaqQuestionList → withicon → Primary*
  */
 export interface FaqQuestionListSliceWithiconPrimary {
@@ -846,7 +895,7 @@ export type FaqQuestionListSliceWithicon = prismic.SharedSliceVariation<"withico
 /**
  * Slice variation for *FaqQuestionList*
  */
-type FaqQuestionListSliceVariation = FaqQuestionListSliceDefault | FaqQuestionListSliceGrid | FaqQuestionListSliceAccordion | FaqQuestionListSliceWithicon
+type FaqQuestionListSliceVariation = FaqQuestionListSliceDefault | FaqQuestionListSliceGrid | FaqQuestionListSliceAccordion | FaqQuestionListSliceFooterGrid | FaqQuestionListSliceWithicon
 
 /**
  * FaqQuestionList Shared Slice
@@ -1408,12 +1457,15 @@ declare module "@prismicio/client" {
 			FaqQuestionListSliceGridItem,
 			FaqQuestionListSliceAccordionPrimary,
 			FaqQuestionListSliceAccordionItem,
+			FaqQuestionListSliceFooterGridPrimary,
+			FaqQuestionListSliceFooterGridItem,
 			FaqQuestionListSliceWithiconPrimary,
 			FaqQuestionListSliceWithiconItem,
 			FaqQuestionListSliceVariation,
 			FaqQuestionListSliceDefault,
 			FaqQuestionListSliceGrid,
 			FaqQuestionListSliceAccordion,
+			FaqQuestionListSliceFooterGrid,
 			FaqQuestionListSliceWithicon,
 			FileDownloadListSlice,
 			FileDownloadListSliceDefaultItem,
