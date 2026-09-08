@@ -107,6 +107,9 @@
             "info_card_list": {
               "type": "SharedSlice"
             },
+            "link_list": {
+              "type": "SharedSlice"
+            },
             "newsletter_signup": {
               "type": "SharedSlice"
             },
@@ -162,6 +165,9 @@
             "info_card_list": {
               "type": "SharedSlice"
             },
+            "link_list": {
+              "type": "SharedSlice"
+            },
             "newsletter_signup": {
               "type": "SharedSlice"
             },
@@ -215,6 +221,9 @@
               "type": "SharedSlice"
             },
             "info_card_list": {
+              "type": "SharedSlice"
+            },
+            "link_list": {
               "type": "SharedSlice"
             },
             "newsletter_signup": {

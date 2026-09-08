@@ -9,6 +9,7 @@ import FileDownloadList from "./FileDownloadList";
 import HeroBanner from "./HeroBanner";
 import ImageBlock from "./ImageBlock";
 import InfoCardList from "./InfoCardList";
+import LinkList from "./LinkList";
 import NewsletterSignup from "./NewsletterSignup";
 import PageTitle from "./PageTitle";
 import RichTextSection from "./RichTextSection";
@@ -30,6 +31,7 @@ export const components = {
   hero_banner: HeroBanner,
   image_block: ImageBlock,
   info_card_list: InfoCardList,
+  link_list: LinkList,
   newsletter_signup: NewsletterSignup,
   page_title: PageTitle,
   rich_text_section: RichTextSection,
