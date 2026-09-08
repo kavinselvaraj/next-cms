@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ChevronLink } from "@/components/prismic/chevron-link";
+import { cn } from "@/lib/utils";
 
 export type DisclosureListProps = SliceComponentProps<Content.DisclosureListSlice>;
 
@@ -34,7 +35,12 @@ export default function DisclosureList({ slice }: DisclosureListProps) {
             <PrismicRichText field={item.body} />
 
             {isFilled.richText(item.box_body) ? (
-              <div className="mb-4 rounded bg-muted px-5 py-4 [&_p]:text-[0.9rem] [&_p]:leading-relaxed">
+              <div
+                className={cn(
+                  "rounded-t-md bg-muted px-5 pt-4 pb-4 [&_p]:text-[0.9rem] [&_p]:leading-relaxed",
+                  isFilled.link(item.link) && "mb-4",
+                )}
+              >
                 {item.box_heading ? (
                   <h4 className="mb-2 text-[0.95rem] font-bold">{item.box_heading}</h4>
                 ) : null}

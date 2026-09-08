@@ -49,6 +49,7 @@ No primary fields.
 
 - Built on shadcn's `Accordion` (`@/components/ui/accordion`), `type="multiple"`, `defaultValue` set to every item — same "all open by default, individually collapsible" behavior as `Accordion`.
 - An item with an entirely empty `body` (e.g. "Passengers who require a wheelchair" on `special-assistance`, which has a title only) is valid — the accordion panel just renders empty.
+- **`box_body`/`FileDownloadList` pairing**: when a topic needs download buttons alongside its sub-box (e.g. "Customers with Assistance Dogs" on `special-assistance`), keep the intro copy in `body` and put everything that belongs *inside the shaded box* — including any text introducing the downloads — in `box_body`, then add a standalone `FileDownloadList` slice instance immediately after this `DisclosureList` instance in the same zone. The box renders `rounded-t-md` with **no bottom margin** whenever `item.link` is empty (the common case when a download list follows), and `FileDownloadList` renders `rounded-b-md` with **no top margin** — together they read as one continuous shaded card, even though they're two independent slice instances (Prismic can't nest a file list inside this slice's items — see the [flat-slice limitation](../README.md#conventions-used-across-every-slice)). Getting this wrong (leaving download-adjacent text in `body` instead of `box_body`) is exactly what caused the "buttons aren't inside the card" look before this convention was established.
 
 ## Styling conventions
 

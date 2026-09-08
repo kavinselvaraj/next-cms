@@ -10,7 +10,7 @@ export type FileDownloadListProps =
 export default function FileDownloadList({ slice }: FileDownloadListProps) {
   return (
     <div
-      className="my-6 flex max-w-80 flex-col gap-4"
+      className="mb-6 flex max-w-80 flex-col gap-4 rounded-b-md bg-muted px-5 pt-2 pb-4"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

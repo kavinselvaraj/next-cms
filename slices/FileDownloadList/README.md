@@ -37,6 +37,7 @@ No primary fields.
 - Built on shadcn's `Button` (`@/components/ui/button`), `variant="outline"`.
 - `isFilled.link(item.file)` decides link-vs-disabled: filled → `Button asChild` wrapping `PrismicNextLink`; empty → plain `Button disabled`.
 - Items stack vertically, `max-w-80` container — intentionally narrow, matching the reference design's compact button column (not full-width buttons).
+- The whole slice renders inside a `bg-muted rounded-b-md` box with **no top margin** — it's designed to sit flush directly under a [`DisclosureList`](../DisclosureList/README.md) item's `box_body` box (which is `rounded-t-md` with no bottom margin when it has no trailing link), so the two independent slice instances read as one continuous shaded card, matching the reference design where download buttons appear *inside* the same box as the surrounding text. See [When to use](#when-to-use) and `DisclosureList`'s [box/FileDownloadList pairing note](../DisclosureList/README.md#rendering--behavior).
 
 ## Styling conventions
 
@@ -47,6 +48,8 @@ No primary fields.
 
 - No progress/loading state — purely a static link/button (file downloads are native browser behavior, not client-side JS).
 - All files in one instance render as a single flat list — if a design needs, say, a 2-column grid of download buttons, this slice would need a new variation.
+- **Assumes it directly follows a `DisclosureList` item's `box_body`** — its `bg-muted rounded-b-md` box only looks correct when the preceding content in the zone is that shaded box with square bottom corners. If this slice is ever placed with no such box above it (or after some other slice), it'll render with square top corners against whatever came before, rather than a fully-rounded standalone card — no variation exists yet for that case.
+- No grouping/sub-heading support for stacking several buttons under one label within a single instance (e.g. "U.S. Origin-Destination Service" / "Canada-bound Service" as sub-groups) — every item in one instance renders as one flat stack. Achieving grouped headings today means splitting into multiple `FileDownloadList` instances and adding an equivalent heading via a preceding slice, since this slice has no primary `heading` field.
 
 ## Related slices
 
