@@ -40,7 +40,7 @@ export default function DisclosureList({ slice }: DisclosureListProps) {
           {hasBox ? (
             <div
               className={cn(
-                "bg-muted px-5 pt-4 pb-4 [&_p]:text-[0.9rem] [&_p]:leading-relaxed",
+                "max-w-xl bg-muted px-5 pt-4 pb-4 [&_p]:text-[0.9rem] [&_p]:leading-relaxed",
                 hasFiles ? "rounded-t-md" : "rounded-md",
                 !hasFiles && isFilled.link(link) && "mb-4",
               )}
@@ -55,13 +55,13 @@ export default function DisclosureList({ slice }: DisclosureListProps) {
           {hasFiles ? (
             <div
               className={cn(
-                "flex max-w-80 flex-col gap-4 bg-muted px-5 pb-4",
+                "flex max-w-xl flex-col gap-4 bg-muted px-5 pb-4",
                 hasBox ? "rounded-b-md pt-2" : "rounded-md pt-4",
                 isFilled.link(link) && "mb-4",
               )}
             >
               {files.map((file, index) => (
-                <div key={`${file.label}-${index}`}>
+                <div className="max-w-80" key={`${file.label}-${index}`}>
                   {isFilled.link(file.file) ? (
                     <Button
                       asChild

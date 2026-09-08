@@ -1,13 +1,16 @@
 # FileDownloadList
 
-A stack of outline download buttons, each with a label and a "File Size: ..." caption underneath.
+A standalone stack of outline download buttons, each with a label and a "File Size: ..." caption underneath.
 
-**Live examples**: `special-assistance` — interleaved after the relevant topic in `DisclosureList` (Medical Information Form after "Medical Needs" and "Pregnant Customers"; US DOT Form ×2 + Service Dog Consent Form after "Assistance Dogs").
+**Live examples**: none currently — `special-assistance`'s three download groups (previously this slice) were migrated into [`DisclosureList`](../DisclosureList/README.md)'s `files` field, so they render inside the relevant topic's collapsible panel instead of as a separate, always-visible block below it. See [When NOT to use](#when-not-to-use).
 
 ## When to use
 
-- One or more downloadable files (forms, PDFs) need a prominent button each, with a size caption.
-- Multiple files belong together as a group (e.g. all the forms relevant to one FAQ topic) — see the note in [`DisclosureList`](../DisclosureList/README.md#when-not-to-use) on why this is a **separate, standalone slice** placed after the relevant content, rather than a field nested inside another slice's items.
+- A prominent group of downloadable files (forms, PDFs) that stands on its own — **not** tied to a specific `DisclosureList` topic's collapsible content.
+
+## When NOT to use
+
+- **Download buttons belong inside a `DisclosureList` topic's box** (the common case — e.g. "submit this form for X topic") → use `DisclosureList`'s own `files` field instead of this slice. A separate `FileDownloadList` instance placed after a `DisclosureList` item is a **different slice, not inside the accordion** — collapsing that topic won't hide the buttons, and no CSS trick changes that (this was tried: matching backgrounds/rounded corners can make two adjacent slices *look* like one box, but they still don't collapse together). This is exactly the mistake that was corrected on `special-assistance`.
 
 ## Variation: `default`
 
@@ -37,7 +40,7 @@ No primary fields.
 - Built on shadcn's `Button` (`@/components/ui/button`), `variant="outline"`.
 - `isFilled.link(item.file)` decides link-vs-disabled: filled → `Button asChild` wrapping `PrismicNextLink`; empty → plain `Button disabled`.
 - Items stack vertically, `max-w-80` container — intentionally narrow, matching the reference design's compact button column (not full-width buttons).
-- The whole slice renders inside a `bg-muted rounded-b-md` box with **no top margin** — it's designed to sit flush directly under a [`DisclosureList`](../DisclosureList/README.md) item's `box_body` box (which is `rounded-t-md` with no bottom margin when it has no trailing link), so the two independent slice instances read as one continuous shaded card, matching the reference design where download buttons appear *inside* the same box as the surrounding text. See [When to use](#when-to-use) and `DisclosureList`'s [box/FileDownloadList pairing note](../DisclosureList/README.md#rendering--behavior).
+- No background/box styling of its own — a plain block on the page background. (An earlier version of this slice tried giving it a `bg-muted` box to visually merge with an adjacent `DisclosureList` box; that approach is deprecated — see [When NOT to use](#when-not-to-use).)
 
 ## Styling conventions
 
@@ -48,10 +51,9 @@ No primary fields.
 
 - No progress/loading state — purely a static link/button (file downloads are native browser behavior, not client-side JS).
 - All files in one instance render as a single flat list — if a design needs, say, a 2-column grid of download buttons, this slice would need a new variation.
-- **Assumes it directly follows a `DisclosureList` item's `box_body`** — its `bg-muted rounded-b-md` box only looks correct when the preceding content in the zone is that shaded box with square bottom corners. If this slice is ever placed with no such box above it (or after some other slice), it'll render with square top corners against whatever came before, rather than a fully-rounded standalone card — no variation exists yet for that case.
-- No grouping/sub-heading support for stacking several buttons under one label within a single instance (e.g. "U.S. Origin-Destination Service" / "Canada-bound Service" as sub-groups) — every item in one instance renders as one flat stack. Achieving grouped headings today means splitting into multiple `FileDownloadList` instances and adding an equivalent heading via a preceding slice, since this slice has no primary `heading` field.
+- No grouping/sub-heading support for stacking several buttons under one label within a single instance. `DisclosureList`'s `files` field has the same limitation.
 
 ## Related slices
 
 - [`ButtonLink`](../ButtonLink/README.md) — single centered button, for a non-file CTA.
-- [`DisclosureList`](../DisclosureList/README.md) — the slice this one is most often interleaved after.
+- [`DisclosureList`](../DisclosureList/README.md) — has its own `files` field for the "downloads tied to one collapsible topic" case; prefer that over this slice whenever that's the situation.
