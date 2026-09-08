@@ -22,7 +22,53 @@ function ChevronDown() {
   );
 }
 
+function ChevronRight() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      className="faq-category-chevron"
+    >
+      <path d="m9 6 6 6-6 6" />
+    </svg>
+  );
+}
+
 export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
+  if (slice.variation === "accordion") {
+    return (
+      <details
+        className="faq-category"
+        open
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+      >
+        <summary className="faq-category-summary">
+          <PrismicRichText field={slice.primary.heading} />
+          <ChevronRight />
+        </summary>
+        <ul className="faq-category-items">
+          {slice.items.map((item, index) => (
+            <li key={`${item.question}-${index}`}>
+              {item.href ? (
+                <a href={item.href}>{item.question}</a>
+              ) : (
+                <span>{item.question}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </details>
+    );
+  }
+
   return (
     <section
       className="faq-list"
