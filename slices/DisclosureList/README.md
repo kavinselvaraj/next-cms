@@ -1,0 +1,66 @@
+# DisclosureList
+
+Unnumbered, individually collapsible sections, each with an optional highlighted box and a single trailing link. `Accordion`'s unnumbered sibling.
+
+**Live examples**: `special-assistance` (Passengers who require a wheelchair, Hearing-impaired customers, etc. — 8 items).
+
+## When to use
+
+- A list of independent policy/eligibility topics that don't form a numbered sequence.
+- Each topic needs: intro body text, optionally a highlighted sub-box (e.g. "Accompanied by a Hearing Dog"), optionally one trailing link.
+
+## When NOT to use
+
+- Content is a numbered step-by-step sequence → use [`Accordion`](../Accordion/README.md).
+- You need two trailing links → use `Accordion` (which supports `link`/`link2`), or follow this slice with a [`LinkList`](../LinkList/README.md).
+- Each item needs multiple downloadable files → see the note on `FileDownloadList` below; this slice's flat schema can't hold a variable-length file list per item (Prismic doesn't allow nesting a repeatable group inside another repeatable zone — see the [slice library conventions](../README.md#conventions-used-across-every-slice)). The working pattern used on `special-assistance` is: split into one `DisclosureList` instance per topic, and interleave standalone [`FileDownloadList`](../FileDownloadList/README.md) instances after the relevant topic in the same zone.
+
+## Variation: `default`
+
+No primary fields.
+
+### Item fields
+
+| Field | Type | Required | Notes |
+|---|---|---|---|
+| `title` | Text | Yes | Section heading. |
+| `body` | Rich Text (multi: `paragraph,strong,em,hyperlink,list-item,o-list-item`) | No | Main content. |
+| `box_heading` | Text | No | Heading for the highlighted sub-box. Only rendered if `box_body` has content. |
+| `box_body` | Rich Text (multi: `paragraph,strong,em,hyperlink,list-item,o-list-item`) | No | The `bg-muted` box's content. |
+| `link_label` | Text | No | Trailing link text. |
+| `link` | Link (target-blank allowed) | No | Trailing link — only one, unlike `Accordion`. |
+
+### Example content (one item)
+
+```json
+{
+  "title": "Hearing-impaired customers",
+  "body": [
+    { "type": "paragraph", "content": { "text": "Hearing-impaired customers must confirm the following with the contact center in advance.", "spans": [] } }
+  ],
+  "box_heading": "Accompanied by a Hearing Dog or Other Assistance",
+  "box_body": [
+    { "type": "paragraph", "content": { "text": "Staff and cabin crew cannot assist with personal care...", "spans": [] } }
+  ]
+}
+```
+
+## Rendering & behavior
+
+- Built on shadcn's `Accordion` (`@/components/ui/accordion`), `type="multiple"`, `defaultValue` set to every item — same "all open by default, individually collapsible" behavior as `Accordion`.
+- An item with an entirely empty `body` (e.g. "Passengers who require a wheelchair" on `special-assistance`, which has a title only) is valid — the accordion panel just renders empty.
+
+## Styling conventions
+
+- Same chevron-link/`bg-muted` box treatment as `Accordion` (see [slice library conventions](../README.md#conventions-used-across-every-slice)).
+- Same `AccordionItem` border override pattern (`border-t! border-b-0! last:border-b!`) for a single divider between items.
+
+## Known limitations
+
+- One trailing link only (vs. `Accordion`'s two) — by design, since this slice's original driving use case never needed a second link.
+- Can't hold a variable-length list of files/links per item — see [When NOT to use](#when-not-to-use).
+
+## Related slices
+
+- [`Accordion`](../Accordion/README.md) — numbered sibling, supports two trailing links and a "necessities" checklist box.
+- [`FileDownloadList`](../FileDownloadList/README.md) — the workaround for multiple files per topic.
