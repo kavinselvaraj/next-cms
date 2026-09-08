@@ -121,6 +121,13 @@
             "single": "heading2,heading3,strong,em"
           },
           "type": "StructuredText"
+        },
+        "current": {
+          "config": {
+            "label": "Current Category (starts expanded)",
+            "placeholder": "false"
+          },
+          "type": "Boolean"
         }
       },
       "version": "initial"

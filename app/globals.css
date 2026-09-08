@@ -156,13 +156,6 @@ a.faq-list-row:hover {
   cursor: pointer;
 }
 
-.faq-list-number {
-  color: var(--accent);
-  font-weight: 700;
-  width: 1.5rem;
-  flex-shrink: 0;
-}
-
 .faq-list-question {
   flex: 1;
   color: var(--text);

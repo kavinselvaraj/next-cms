@@ -4,25 +4,7 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 export type FaqQuestionListProps =
   SliceComponentProps<Content.FaqQuestionListSlice>;
 
-function ChevronDown() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="m6 9 6 6 6-6" />
-    </svg>
-  );
-}
-
-function ChevronRight() {
+function ChevronRight({ className }: { className?: string }) {
   return (
     <svg
       width="14"
@@ -34,7 +16,7 @@ function ChevronRight() {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
-      className="faq-category-chevron"
+      className={className}
     >
       <path d="m9 6 6 6-6 6" />
     </svg>
@@ -46,13 +28,13 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
     return (
       <details
         className="faq-category"
-        open
+        open={Boolean(slice.primary.current)}
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
       >
         <summary className="faq-category-summary">
           <PrismicRichText field={slice.primary.heading} />
-          <ChevronRight />
+          <ChevronRight className="faq-category-chevron" />
         </summary>
         <ul className="faq-category-items">
           {slice.items.map((item, index) => (
@@ -81,9 +63,8 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
         {slice.items.map((item, index) => {
           const row = (
             <>
-              <span className="faq-list-number">{index + 1}</span>
               <span className="faq-list-question">{item.question}</span>
-              <ChevronDown />
+              <ChevronRight className="faq-list-chevron" />
             </>
           );
 
