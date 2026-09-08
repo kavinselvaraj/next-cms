@@ -44,6 +44,26 @@
         "link": {
           "type": "Link",
           "config": { "label": "Link", "placeholder": "", "allowTargetBlank": true }
+        },
+        "files": {
+          "type": "Group",
+          "config": {
+            "label": "Downloadable Files",
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": { "label": "Button Label", "placeholder": "" }
+              },
+              "file": {
+                "type": "Link",
+                "config": { "label": "File", "placeholder": "", "allowTargetBlank": true }
+              },
+              "file_size": {
+                "type": "Text",
+                "config": { "label": "File Size", "placeholder": "e.g. 504KB" }
+              }
+            }
+          }
         }
       }
     }
