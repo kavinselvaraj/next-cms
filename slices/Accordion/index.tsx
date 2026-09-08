@@ -16,25 +16,25 @@ export default function Accordion({ slice }: AccordionProps) {
     <AccordionRoot
       type="multiple"
       defaultValue={slice.items.map((_, index) => `item-${index}`)}
-      className="accordion"
+      className="mt-6"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
       {slice.items.map((item, index) => (
         <AccordionItem
           value={`item-${index}`}
-          className="accordion-item"
+          className="border-t! border-b-0! py-1 last:border-b!"
           key={`${item.title}-${index}`}
         >
-          <AccordionTrigger className="accordion-trigger">
-            <span className="accordion-number">{index + 1}</span>
-            <span className="accordion-title">{item.title}</span>
+          <AccordionTrigger className="items-center! gap-3 py-3!">
+            <span className="w-5 shrink-0 font-bold text-primary">{index + 1}</span>
+            <span className="flex-1 font-bold text-foreground">{item.title}</span>
           </AccordionTrigger>
 
-          <AccordionContent className="accordion-panel">
+          <AccordionContent className="pb-2! pl-8! [&_a]:text-primary [&_p]:mb-3 [&_p]:leading-relaxed">
             {item.note ? (
-              <div className="accordion-note">
-                <p>{item.note}</p>
+              <div className="mb-4 rounded bg-muted px-5 py-4">
+                <p className="m-0 font-bold">{item.note}</p>
               </div>
             ) : null}
 
@@ -43,24 +43,30 @@ export default function Accordion({ slice }: AccordionProps) {
             {isFilled.richText(item.necessities) ? (
               <>
                 {item.necessities_heading ? (
-                  <p className="accordion-necessities-heading">
+                  <p className="mt-4 mb-2 font-bold">
                     {item.necessities_heading}
                   </p>
                 ) : null}
-                <div className="necessities-box">
+                <div className="mb-4 rounded border px-5 py-4 [&_h4:not(:first-child)]:mt-4 [&_h4]:mb-1 [&_h4]:text-[0.95rem] [&_h4]:font-bold [&_p]:m-0 [&_p]:text-[0.9rem] [&_p]:text-muted-foreground">
                   <PrismicRichText field={item.necessities} />
                 </div>
               </>
             ) : null}
 
             {isFilled.link(item.link) ? (
-              <PrismicNextLink field={item.link} className="accordion-link">
+              <PrismicNextLink
+                field={item.link}
+                className="mb-2 flex items-center gap-1 font-semibold text-primary no-underline last:mb-0 hover:underline after:content-['\203A']"
+              >
                 {item.link_label}
               </PrismicNextLink>
             ) : null}
 
             {isFilled.link(item.link2) ? (
-              <PrismicNextLink field={item.link2} className="accordion-link">
+              <PrismicNextLink
+                field={item.link2}
+                className="mb-2 flex items-center gap-1 font-semibold text-primary no-underline last:mb-0 hover:underline after:content-['\203A']"
+              >
                 {item.link2_label}
               </PrismicNextLink>
             ) : null}

@@ -1,5 +1,5 @@
 import { Content } from "@prismicio/client";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 import {
   Accordion,
@@ -30,6 +30,15 @@ function ChevronRight({ className }: { className?: string }) {
   );
 }
 
+const headingComponents: JSXMapSerializer = {
+  heading2: ({ children }) => (
+    <h2 className="flex-1 text-base font-bold">{children}</h2>
+  ),
+  heading3: ({ children }) => (
+    <h3 className="flex-1 text-base font-bold">{children}</h3>
+  ),
+};
+
 export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
   if (slice.variation === "accordion") {
     return (
@@ -37,20 +46,22 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
         type="single"
         collapsible
         defaultValue={slice.primary.current ? "category" : undefined}
-        className="faq-category"
+        className="block border-t py-1 last:border-b"
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
       >
-        <AccordionItem value="category" className="faq-category-item">
-          <AccordionTrigger className="faq-category-summary">
-            <PrismicRichText field={slice.primary.heading} />
+        <AccordionItem value="category" className="border-b-0">
+          <AccordionTrigger className="items-center! gap-3 py-2!">
+            <PrismicRichText field={slice.primary.heading} components={headingComponents} />
           </AccordionTrigger>
-          <AccordionContent className="faq-category-content">
-            <ul className="faq-category-items">
+          <AccordionContent>
+            <ul className="mt-3 flex list-none flex-col gap-2 pl-1">
               {slice.items.map((item, index) => (
                 <li key={`${item.question}-${index}`}>
                   {item.href ? (
-                    <a href={item.href}>{item.question}</a>
+                    <a href={item.href} className="text-primary no-underline hover:underline">
+                      {item.question}
+                    </a>
                   ) : (
                     <span>{item.question}</span>
                   )}
@@ -66,17 +77,21 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
   if (slice.variation === "grid") {
     return (
       <section
-        className="faq-topic-group"
+        className="border-b py-5 first-of-type:border-t"
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
       >
-        <div className="faq-topic-group-heading">
-          <PrismicRichText field={slice.primary.heading} />
+        <div className="mb-3 font-bold">
+          <PrismicRichText field={slice.primary.heading} components={headingComponents} />
         </div>
-        <div className="faq-topic-links">
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
           {slice.items.map((item, index) =>
             item.href ? (
-              <a key={`${item.question}-${index}`} href={item.href}>
+              <a
+                key={`${item.question}-${index}`}
+                href={item.href}
+                className="text-primary underline"
+              >
                 {item.question}
               </a>
             ) : (
@@ -90,29 +105,32 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
 
   return (
     <section
-      className="faq-list"
+      className="mt-6"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
       <PrismicRichText field={slice.primary.heading} />
       <PrismicRichText field={slice.primary.description} />
-      <ol className="faq-list-items">
+      <ol className="mt-4 list-none p-0">
         {slice.items.map((item, index) => {
           const row = (
             <>
-              <span className="faq-list-question">{item.question}</span>
-              <ChevronRight className="faq-list-chevron" />
+              <span className="flex-1 text-foreground">{item.question}</span>
+              <ChevronRight className="shrink-0 text-muted-foreground" />
             </>
           );
 
           return (
-            <li key={`${item.question}-${index}`}>
+            <li className="border-b" key={`${item.question}-${index}`}>
               {item.href ? (
-                <a className="faq-list-row" href={item.href}>
+                <a
+                  href={item.href}
+                  className="flex items-center gap-4 rounded px-2 py-4 text-inherit no-underline hover:cursor-pointer hover:bg-accent"
+                >
                   {row}
                 </a>
               ) : (
-                <div className="faq-list-row">{row}</div>
+                <div className="flex items-center gap-4 px-2 py-4">{row}</div>
               )}
             </li>
           );

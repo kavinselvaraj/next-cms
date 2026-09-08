@@ -11,11 +11,15 @@ export default function ButtonLink({ slice }: ButtonLinkProps) {
 
   return (
     <div
-      className="button-link"
+      className="my-8 flex justify-center"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <Button asChild variant="outline" className="button-link-cta">
+      <Button
+        asChild
+        variant="outline"
+        className="h-auto! border-primary! px-8 py-3 font-semibold text-primary! hover:bg-accent!"
+      >
         <PrismicNextLink field={slice.primary.link}>
           {slice.primary.label}
         </PrismicNextLink>
