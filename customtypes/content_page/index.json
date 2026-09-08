@@ -74,19 +74,10 @@
       "main": {
         "config": {
           "choices": {
-            "cta_banner": {
+            "accordion": {
               "type": "SharedSlice"
             },
-            "faq_question_list": {
-              "type": "SharedSlice"
-            },
-            "rich_text_section": {
-              "type": "SharedSlice"
-            },
-            "info_card_list": {
-              "type": "SharedSlice"
-            },
-            "image_block": {
+            "breadcrumbs": {
               "type": "SharedSlice"
             },
             "button_link": {
@@ -95,7 +86,37 @@
             "callout": {
               "type": "SharedSlice"
             },
-            "accordion": {
+            "cta_banner": {
+              "type": "SharedSlice"
+            },
+            "disclosure_list": {
+              "type": "SharedSlice"
+            },
+            "faq_question_list": {
+              "type": "SharedSlice"
+            },
+            "file_download_list": {
+              "type": "SharedSlice"
+            },
+            "hero_banner": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "info_card_list": {
+              "type": "SharedSlice"
+            },
+            "newsletter_signup": {
+              "type": "SharedSlice"
+            },
+            "page_title": {
+              "type": "SharedSlice"
+            },
+            "rich_text_section": {
+              "type": "SharedSlice"
+            },
+            "social_links": {
               "type": "SharedSlice"
             }
           }
@@ -108,10 +129,49 @@
       "aside": {
         "config": {
           "choices": {
+            "accordion": {
+              "type": "SharedSlice"
+            },
+            "breadcrumbs": {
+              "type": "SharedSlice"
+            },
+            "button_link": {
+              "type": "SharedSlice"
+            },
+            "callout": {
+              "type": "SharedSlice"
+            },
             "cta_banner": {
               "type": "SharedSlice"
             },
+            "disclosure_list": {
+              "type": "SharedSlice"
+            },
             "faq_question_list": {
+              "type": "SharedSlice"
+            },
+            "file_download_list": {
+              "type": "SharedSlice"
+            },
+            "hero_banner": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "info_card_list": {
+              "type": "SharedSlice"
+            },
+            "newsletter_signup": {
+              "type": "SharedSlice"
+            },
+            "page_title": {
+              "type": "SharedSlice"
+            },
+            "rich_text_section": {
+              "type": "SharedSlice"
+            },
+            "social_links": {
               "type": "SharedSlice"
             }
           }
@@ -124,7 +184,46 @@
       "footer": {
         "config": {
           "choices": {
+            "accordion": {
+              "type": "SharedSlice"
+            },
+            "breadcrumbs": {
+              "type": "SharedSlice"
+            },
+            "button_link": {
+              "type": "SharedSlice"
+            },
+            "callout": {
+              "type": "SharedSlice"
+            },
+            "cta_banner": {
+              "type": "SharedSlice"
+            },
+            "disclosure_list": {
+              "type": "SharedSlice"
+            },
+            "faq_question_list": {
+              "type": "SharedSlice"
+            },
+            "file_download_list": {
+              "type": "SharedSlice"
+            },
+            "hero_banner": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
+              "type": "SharedSlice"
+            },
+            "info_card_list": {
+              "type": "SharedSlice"
+            },
             "newsletter_signup": {
+              "type": "SharedSlice"
+            },
+            "page_title": {
+              "type": "SharedSlice"
+            },
+            "rich_text_section": {
               "type": "SharedSlice"
             },
             "social_links": {
