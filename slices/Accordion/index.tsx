@@ -65,6 +65,12 @@ export default function Accordion({ slice }: AccordionProps) {
                 {item.link_label}
               </PrismicNextLink>
             ) : null}
+
+            {isFilled.link(item.link2) ? (
+              <PrismicNextLink field={item.link2} className="accordion-link">
+                {item.link2_label}
+              </PrismicNextLink>
+            ) : null}
           </div>
         </details>
       ))}

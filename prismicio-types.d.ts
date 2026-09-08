@@ -50,7 +50,7 @@ type ContentRelationshipFieldWithData<
 
 type ContentPageDocumentDataHeadingSlice = PageTitleSlice | BreadcrumbsSlice | HeroBannerSlice
 
-type ContentPageDocumentDataMainSlice = CtaBannerSlice | FaqQuestionListSlice | RichTextSectionSlice | InfoCardListSlice | ImageBlockSlice | ButtonLinkSlice
+type ContentPageDocumentDataMainSlice = CtaBannerSlice | FaqQuestionListSlice | RichTextSectionSlice | InfoCardListSlice | ImageBlockSlice | ButtonLinkSlice | CalloutSlice | AccordionSlice | DisclosureListSlice | FileDownloadListSlice
 
 type ContentPageDocumentDataAsideSlice = CtaBannerSlice | FaqQuestionListSlice
 
@@ -179,6 +179,270 @@ export type ContentPageDocument<Lang extends string = string> = prismic.PrismicD
 export type AllDocumentTypes = ContentPageDocument;
 
 /**
+ * Primary content in *Accordion → Items*
+ */
+export interface AccordionSliceDefaultItem {
+	/**
+	 * Title field in *Accordion → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: accordion.items[].title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Highlighted Note field in *Accordion → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: accordion.items[].note
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	note: prismic.KeyTextField;
+	
+	/**
+	 * Body field in *Accordion → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: accordion.items[].body
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	body: prismic.RichTextField;
+	
+	/**
+	 * Necessities Heading field in *Accordion → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: accordion.items[].necessities_heading
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	necessities_heading: prismic.KeyTextField;
+	
+	/**
+	 * Necessities field in *Accordion → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: accordion.items[].necessities
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	necessities: prismic.RichTextField;
+	
+	/**
+	 * Link Label field in *Accordion → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: accordion.items[].link_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	link_label: prismic.KeyTextField;
+	
+	/**
+	 * Link field in *Accordion → Items*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: accordion.items[].link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+	/**
+	 * Second Link Label field in *Accordion → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: accordion.items[].link2_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	link2_label: prismic.KeyTextField;
+
+	/**
+	 * Second Link field in *Accordion → Items*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: accordion.items[].link2
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	link2: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for Accordion Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Numbered accordion items
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AccordionSliceDefault = prismic.SharedSliceVariation<"default", Record<string, never>, Simplify<AccordionSliceDefaultItem>>;
+
+/**
+ * Slice variation for *Accordion*
+ */
+type AccordionSliceVariation = AccordionSliceDefault
+
+/**
+ * Accordion Shared Slice
+ *
+ * - **API ID**: `accordion`
+ * - **Description**: Numbered, individually collapsible sections (e.g. a step-by-step process)
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AccordionSlice = prismic.SharedSlice<"accordion", AccordionSliceVariation>;
+
+/**
+ * Primary content in *DisclosureList → Items*
+ */
+export interface DisclosureListSliceDefaultItem {
+	/**
+	 * Title field in *DisclosureList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: disclosure_list.items[].title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * Body field in *DisclosureList → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: disclosure_list.items[].body
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	body: prismic.RichTextField;
+
+	/**
+	 * Box Heading field in *DisclosureList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: disclosure_list.items[].box_heading
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	box_heading: prismic.KeyTextField;
+
+	/**
+	 * Box Body field in *DisclosureList → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: disclosure_list.items[].box_body
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	box_body: prismic.RichTextField;
+
+	/**
+	 * Link Label field in *DisclosureList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: disclosure_list.items[].link_label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	link_label: prismic.KeyTextField;
+
+	/**
+	 * Link field in *DisclosureList → Items*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: disclosure_list.items[].link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for DisclosureList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Toggleable sections
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DisclosureListSliceDefault = prismic.SharedSliceVariation<"default", Record<string, never>, Simplify<DisclosureListSliceDefaultItem>>;
+
+/**
+ * Slice variation for *DisclosureList*
+ */
+type DisclosureListSliceVariation = DisclosureListSliceDefault
+
+/**
+ * DisclosureList Shared Slice
+ *
+ * - **API ID**: `disclosure_list`
+ * - **Description**: Unnumbered collapsible sections, each with an optional highlighted box and link (e.g. eligibility/policy details)
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DisclosureListSlice = prismic.SharedSlice<"disclosure_list", DisclosureListSliceVariation>;
+
+/**
+ * Primary content in *FileDownloadList → Items*
+ */
+export interface FileDownloadListSliceDefaultItem {
+	/**
+	 * Button Label field in *FileDownloadList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: file_download_list.items[].label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	label: prismic.KeyTextField;
+
+	/**
+	 * File field in *FileDownloadList → Items*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: file_download_list.items[].file
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	file: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+	/**
+	 * File Size field in *FileDownloadList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: e.g. 504KB
+	 * - **API ID Path**: file_download_list.items[].file_size
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	file_size: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for FileDownloadList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Download buttons with file size
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FileDownloadListSliceDefault = prismic.SharedSliceVariation<"default", Record<string, never>, Simplify<FileDownloadListSliceDefaultItem>>;
+
+/**
+ * Slice variation for *FileDownloadList*
+ */
+type FileDownloadListSliceVariation = FileDownloadListSliceDefault
+
+/**
+ * FileDownloadList Shared Slice
+ *
+ * - **API ID**: `file_download_list`
+ * - **Description**: A row of outline download buttons, each with a label and file size caption (e.g. downloadable PDF forms)
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FileDownloadListSlice = prismic.SharedSlice<"file_download_list", FileDownloadListSliceVariation>;
+
+/**
  * Primary content in *Breadcrumbs → Default → Primary*
  */
 export interface BreadcrumbsSliceDefaultPrimary {
@@ -263,6 +527,65 @@ type ButtonLinkSliceVariation = ButtonLinkSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type ButtonLinkSlice = prismic.SharedSlice<"button_link", ButtonLinkSliceVariation>;
+
+/**
+ * Primary content in *Callout → Default → Primary*
+ */
+export interface CalloutSliceDefaultPrimary {
+	/**
+	 * Style field in *Callout → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: Neutral
+	 * - **API ID Path**: callout.default.primary.style
+	 * - **Documentation**: https://prismic.io/docs/fields/select
+	 */
+	style: prismic.SelectField<"Neutral" | "Info" | "Warning" | "Success", "filled">;
+	
+	/**
+	 * Heading field in *Callout → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: callout.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+	
+	/**
+	 * Body field in *Callout → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: callout.default.primary.body
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Callout Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Bordered callout box
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CalloutSliceDefault = prismic.SharedSliceVariation<"default", Simplify<CalloutSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Callout*
+ */
+type CalloutSliceVariation = CalloutSliceDefault
+
+/**
+ * Callout Shared Slice
+ *
+ * - **API ID**: `callout`
+ * - **Description**: A bordered, colored box for a multi-line note/warning/highlighted block
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CalloutSlice = prismic.SharedSlice<"callout", CalloutSliceVariation>;
 
 /**
  * Primary content in *CtaBanner → Default → Primary*
@@ -995,6 +1318,10 @@ declare module "@prismicio/client" {
 			ContentPageDocumentDataAsideSlice,
 			ContentPageDocumentDataFooterSlice,
 			AllDocumentTypes,
+			AccordionSlice,
+			AccordionSliceDefaultItem,
+			AccordionSliceVariation,
+			AccordionSliceDefault,
 			BreadcrumbsSlice,
 			BreadcrumbsSliceDefaultPrimary,
 			BreadcrumbsSliceVariation,
@@ -1003,10 +1330,18 @@ declare module "@prismicio/client" {
 			ButtonLinkSliceDefaultPrimary,
 			ButtonLinkSliceVariation,
 			ButtonLinkSliceDefault,
+			CalloutSlice,
+			CalloutSliceDefaultPrimary,
+			CalloutSliceVariation,
+			CalloutSliceDefault,
 			CtaBannerSlice,
 			CtaBannerSliceDefaultPrimary,
 			CtaBannerSliceVariation,
 			CtaBannerSliceDefault,
+			DisclosureListSlice,
+			DisclosureListSliceDefaultItem,
+			DisclosureListSliceVariation,
+			DisclosureListSliceDefault,
 			FaqQuestionListSlice,
 			FaqQuestionListSliceDefaultPrimary,
 			FaqQuestionListSliceDefaultItem,
@@ -1018,6 +1353,10 @@ declare module "@prismicio/client" {
 			FaqQuestionListSliceDefault,
 			FaqQuestionListSliceGrid,
 			FaqQuestionListSliceWithicon,
+			FileDownloadListSlice,
+			FileDownloadListSliceDefaultItem,
+			FileDownloadListSliceVariation,
+			FileDownloadListSliceDefault,
 			HeroBannerSlice,
 			HeroBannerSliceDefaultPrimary,
 			HeroBannerSliceVariation,

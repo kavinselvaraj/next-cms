@@ -1,15 +1,15 @@
 {
-  "id": "accordion",
+  "id": "disclosure_list",
   "type": "SharedSlice",
-  "name": "Accordion",
-  "description": "Numbered, individually collapsible sections (e.g. a step-by-step process)",
+  "name": "DisclosureList",
+  "description": "Unnumbered collapsible sections, each with an optional highlighted box and link (e.g. eligibility/policy details)",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "https://prismic.io/docs/slices",
       "version": "initial",
-      "description": "Numbered accordion items",
+      "description": "Toggleable sections",
       "imageUrl": "",
       "primary": {},
       "items": {
@@ -17,28 +17,23 @@
           "type": "Text",
           "config": { "label": "Title", "placeholder": "" }
         },
-        "note": {
-          "type": "Text",
-          "config": { "label": "Highlighted Note", "placeholder": "" }
-        },
         "body": {
           "type": "StructuredText",
           "config": {
             "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
-            "labels": ["muted", "small"],
             "label": "Body",
             "placeholder": ""
           }
         },
-        "necessities_heading": {
+        "box_heading": {
           "type": "Text",
-          "config": { "label": "Necessities Heading", "placeholder": "" }
+          "config": { "label": "Box Heading", "placeholder": "" }
         },
-        "necessities": {
+        "box_body": {
           "type": "StructuredText",
           "config": {
-            "multi": "heading4,paragraph,strong,em,hyperlink",
-            "label": "Necessities",
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item",
+            "label": "Box Body",
             "placeholder": ""
           }
         },
@@ -49,14 +44,6 @@
         "link": {
           "type": "Link",
           "config": { "label": "Link", "placeholder": "", "allowTargetBlank": true }
-        },
-        "link2_label": {
-          "type": "Text",
-          "config": { "label": "Second Link Label", "placeholder": "" }
-        },
-        "link2": {
-          "type": "Link",
-          "config": { "label": "Second Link", "placeholder": "", "allowTargetBlank": true }
         }
       }
     }

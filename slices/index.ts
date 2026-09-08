@@ -3,7 +3,9 @@ import Breadcrumbs from "./Breadcrumbs";
 import ButtonLink from "./ButtonLink";
 import Callout from "./Callout";
 import CtaBanner from "./CtaBanner";
+import DisclosureList from "./DisclosureList";
 import FaqQuestionList from "./FaqQuestionList";
+import FileDownloadList from "./FileDownloadList";
 import HeroBanner from "./HeroBanner";
 import ImageBlock from "./ImageBlock";
 import InfoCardList from "./InfoCardList";
@@ -22,7 +24,9 @@ export const components = {
   button_link: ButtonLink,
   callout: Callout,
   cta_banner: CtaBanner,
+  disclosure_list: DisclosureList,
   faq_question_list: FaqQuestionList,
+  file_download_list: FileDownloadList,
   hero_banner: HeroBanner,
   image_block: ImageBlock,
   info_card_list: InfoCardList,

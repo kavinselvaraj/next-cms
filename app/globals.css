@@ -501,13 +501,139 @@ a.faq-list-row:hover {
 }
 
 .accordion-link {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.accordion-link:last-child {
+  margin-bottom: 0;
+}
+
+.accordion-link:hover {
+  text-decoration: underline;
+}
+
+.accordion-link::after {
+  content: "\203A";
+}
+
+/* DisclosureList slice: unnumbered collapsible sections */
+.disclosure-list {
+  margin-top: 1.5rem;
+}
+
+.disclosure-item {
+  border-top: 1px solid var(--border);
+  padding: 1rem 0;
+}
+
+.disclosure-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.disclosure-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.disclosure-summary::-webkit-details-marker {
+  display: none;
+}
+
+.disclosure-title {
+  flex: 1;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.disclosure-chevron {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.disclosure-item[open] .disclosure-chevron {
+  transform: rotate(180deg);
+}
+
+.disclosure-panel {
+  padding: 1rem 0 0;
+}
+
+.disclosure-panel p {
+  margin: 0 0 0.75rem;
+  line-height: 1.6;
+}
+
+.disclosure-panel a {
+  color: var(--accent);
+}
+
+.disclosure-box {
+  background: var(--row-hover);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.disclosure-box h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.disclosure-box p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.disclosure-link {
   color: var(--accent);
   font-weight: 600;
   text-decoration: none;
 }
 
-.accordion-link:hover {
+.disclosure-link:hover {
   text-decoration: underline;
+}
+
+/* FileDownloadList slice: outline download buttons with a file size caption */
+.file-download-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  max-width: 320px;
+}
+
+.file-download-button {
+  display: block;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
+
+.file-download-button:hover {
+  background: var(--row-hover);
+}
+
+.file-download-size {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin: 0.35rem 0 0;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
