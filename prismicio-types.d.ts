@@ -50,11 +50,11 @@ type ContentRelationshipFieldWithData<
 
 type ContentPageDocumentDataHeadingSlice = PageTitleSlice | BreadcrumbsSlice | HeroBannerSlice
 
-type ContentPageDocumentDataMainSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | CtaBannerSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | HeroBannerSlice | ImageBlockSlice | InfoCardListSlice | NewsletterSignupSlice | PageTitleSlice | RichTextSectionSlice | SocialLinksSlice
+type ContentPageDocumentDataMainSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | CtaBannerSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | HeroBannerSlice | ImageBlockSlice | InfoCardListSlice | LinkListSlice | NewsletterSignupSlice | PageTitleSlice | RichTextSectionSlice | SocialLinksSlice
 
-type ContentPageDocumentDataAsideSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | CtaBannerSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | HeroBannerSlice | ImageBlockSlice | InfoCardListSlice | NewsletterSignupSlice | PageTitleSlice | RichTextSectionSlice | SocialLinksSlice
+type ContentPageDocumentDataAsideSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | CtaBannerSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | HeroBannerSlice | ImageBlockSlice | InfoCardListSlice | LinkListSlice | NewsletterSignupSlice | PageTitleSlice | RichTextSectionSlice | SocialLinksSlice
 
-type ContentPageDocumentDataFooterSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | CtaBannerSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | HeroBannerSlice | ImageBlockSlice | InfoCardListSlice | NewsletterSignupSlice | PageTitleSlice | RichTextSectionSlice | SocialLinksSlice
+type ContentPageDocumentDataFooterSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | CtaBannerSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | HeroBannerSlice | ImageBlockSlice | InfoCardListSlice | LinkListSlice | NewsletterSignupSlice | PageTitleSlice | RichTextSectionSlice | SocialLinksSlice
 
 /**
  * Content for Content Page documents
@@ -1139,6 +1139,69 @@ type InfoCardListSliceVariation = InfoCardListSliceDefault
 export type InfoCardListSlice = prismic.SharedSlice<"info_card_list", InfoCardListSliceVariation>;
 
 /**
+ * Primary content in *LinkList → Default → Primary*
+ */
+export interface LinkListSliceDefaultPrimary {
+	/**
+	 * Heading field in *LinkList → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: link_list.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *LinkList → Items*
+ */
+export interface LinkListSliceDefaultItem {
+	/**
+	 * Label field in *LinkList → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: link_list.items[].label
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	label: prismic.KeyTextField;
+	
+	/**
+	 * Link field in *LinkList → Items*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: link_list.items[].link
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for LinkList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: An optional heading followed by a vertical list of chevron links
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type LinkListSliceDefault = prismic.SharedSliceVariation<"default", Simplify<LinkListSliceDefaultPrimary>, Simplify<LinkListSliceDefaultItem>>;
+
+/**
+ * Slice variation for *LinkList*
+ */
+type LinkListSliceVariation = LinkListSliceDefault
+
+/**
+ * LinkList Shared Slice
+ *
+ * - **API ID**: `link_list`
+ * - **Description**: Stacked chevron links (e.g. related links following a text section)
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type LinkListSlice = prismic.SharedSlice<"link_list", LinkListSliceVariation>;
+
+/**
  * Primary content in *NewsletterSignup → Default → Primary*
  */
 export interface NewsletterSignupSliceDefaultPrimary {
@@ -1493,6 +1556,11 @@ declare module "@prismicio/client" {
 			InfoCardListSliceDefaultItem,
 			InfoCardListSliceVariation,
 			InfoCardListSliceDefault,
+			LinkListSlice,
+			LinkListSliceDefaultPrimary,
+			LinkListSliceDefaultItem,
+			LinkListSliceVariation,
+			LinkListSliceDefault,
 			NewsletterSignupSlice,
 			NewsletterSignupSliceDefaultPrimary,
 			NewsletterSignupSliceVariation,
