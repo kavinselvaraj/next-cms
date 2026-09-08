@@ -22,18 +22,14 @@ The page layout itself (`app/[uid]/page.tsx`) is a responsive grid: Main + Aside
 | [`Breadcrumbs`](Breadcrumbs/README.md) | Home › Level 1 › Level 2 › Level 3 trail | `default` |
 | [`ButtonLink`](ButtonLink/README.md) | A single centered outline CTA button | `default` |
 | [`Callout`](Callout/README.md) | A bordered, colored box for a note/warning/highlight | `default` |
-| [`CtaBanner`](CtaBanner/README.md) | Centered call-to-action text + link | `default` |
 | [`DisclosureList`](DisclosureList/README.md) | Unnumbered collapsible sections with an optional box + link | `default` |
 | [`FaqQuestionList`](FaqQuestionList/README.md) | FAQ category/question lists — 5 different layouts | `default`, `grid`, `accordion`, `footer_grid`, `withicon` |
 | [`FileDownloadList`](FileDownloadList/README.md) | Outline download buttons with a file-size caption | `default` |
-| [`HeroBanner`](HeroBanner/README.md) | Full-width image + title + CTA | `default` |
 | [`ImageBlock`](ImageBlock/README.md) | A single image with an optional caption | `default` |
 | [`InfoCardList`](InfoCardList/README.md) | Stacked bordered info cards (title + body) | `default` |
 | [`LinkList`](LinkList/README.md) | An optional heading + a stacked list of chevron links | `default` |
-| [`NewsletterSignup`](NewsletterSignup/README.md) | Email signup form | `default` |
 | [`PageTitle`](PageTitle/README.md) | The page's H1 + optional subtitle | `default` |
 | [`RichTextSection`](RichTextSection/README.md) | Heading + body rich text, with per-block/per-line size & color | `default` |
-| [`SocialLinks`](SocialLinks/README.md) | A titled list of outbound social links | `default` |
 
 ## Conventions used across every slice
 

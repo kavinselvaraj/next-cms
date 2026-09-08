@@ -60,9 +60,6 @@
             },
             "breadcrumbs": {
               "type": "SharedSlice"
-            },
-            "hero_banner": {
-              "type": "SharedSlice"
             }
           }
         },
@@ -86,9 +83,6 @@
             "callout": {
               "type": "SharedSlice"
             },
-            "cta_banner": {
-              "type": "SharedSlice"
-            },
             "disclosure_list": {
               "type": "SharedSlice"
             },
@@ -96,9 +90,6 @@
               "type": "SharedSlice"
             },
             "file_download_list": {
-              "type": "SharedSlice"
-            },
-            "hero_banner": {
               "type": "SharedSlice"
             },
             "image_block": {
@@ -110,16 +101,10 @@
             "link_list": {
               "type": "SharedSlice"
             },
-            "newsletter_signup": {
-              "type": "SharedSlice"
-            },
             "page_title": {
               "type": "SharedSlice"
             },
             "rich_text_section": {
-              "type": "SharedSlice"
-            },
-            "social_links": {
               "type": "SharedSlice"
             }
           }
@@ -144,9 +129,6 @@
             "callout": {
               "type": "SharedSlice"
             },
-            "cta_banner": {
-              "type": "SharedSlice"
-            },
             "disclosure_list": {
               "type": "SharedSlice"
             },
@@ -154,9 +136,6 @@
               "type": "SharedSlice"
             },
             "file_download_list": {
-              "type": "SharedSlice"
-            },
-            "hero_banner": {
               "type": "SharedSlice"
             },
             "image_block": {
@@ -168,16 +147,10 @@
             "link_list": {
               "type": "SharedSlice"
             },
-            "newsletter_signup": {
-              "type": "SharedSlice"
-            },
             "page_title": {
               "type": "SharedSlice"
             },
             "rich_text_section": {
-              "type": "SharedSlice"
-            },
-            "social_links": {
               "type": "SharedSlice"
             }
           }
@@ -202,9 +175,6 @@
             "callout": {
               "type": "SharedSlice"
             },
-            "cta_banner": {
-              "type": "SharedSlice"
-            },
             "disclosure_list": {
               "type": "SharedSlice"
             },
@@ -212,9 +182,6 @@
               "type": "SharedSlice"
             },
             "file_download_list": {
-              "type": "SharedSlice"
-            },
-            "hero_banner": {
               "type": "SharedSlice"
             },
             "image_block": {
@@ -226,16 +193,10 @@
             "link_list": {
               "type": "SharedSlice"
             },
-            "newsletter_signup": {
-              "type": "SharedSlice"
-            },
             "page_title": {
               "type": "SharedSlice"
             },
             "rich_text_section": {
-              "type": "SharedSlice"
-            },
-            "social_links": {
               "type": "SharedSlice"
             }
           }

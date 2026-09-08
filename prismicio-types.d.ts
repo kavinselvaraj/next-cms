@@ -48,13 +48,13 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type ContentPageDocumentDataHeadingSlice = PageTitleSlice | BreadcrumbsSlice | HeroBannerSlice
+type ContentPageDocumentDataHeadingSlice = PageTitleSlice | BreadcrumbsSlice
 
-type ContentPageDocumentDataMainSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | CtaBannerSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | HeroBannerSlice | ImageBlockSlice | InfoCardListSlice | LinkListSlice | NewsletterSignupSlice | PageTitleSlice | RichTextSectionSlice | SocialLinksSlice
+type ContentPageDocumentDataMainSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | ImageBlockSlice | InfoCardListSlice | LinkListSlice | PageTitleSlice | RichTextSectionSlice
 
-type ContentPageDocumentDataAsideSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | CtaBannerSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | HeroBannerSlice | ImageBlockSlice | InfoCardListSlice | LinkListSlice | NewsletterSignupSlice | PageTitleSlice | RichTextSectionSlice | SocialLinksSlice
+type ContentPageDocumentDataAsideSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | ImageBlockSlice | InfoCardListSlice | LinkListSlice | PageTitleSlice | RichTextSectionSlice
 
-type ContentPageDocumentDataFooterSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | CtaBannerSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | HeroBannerSlice | ImageBlockSlice | InfoCardListSlice | LinkListSlice | NewsletterSignupSlice | PageTitleSlice | RichTextSectionSlice | SocialLinksSlice
+type ContentPageDocumentDataFooterSlice = AccordionSlice | BreadcrumbsSlice | ButtonLinkSlice | CalloutSlice | DisclosureListSlice | FaqQuestionListSlice | FileDownloadListSlice | ImageBlockSlice | InfoCardListSlice | LinkListSlice | PageTitleSlice | RichTextSectionSlice
 
 /**
  * Content for Content Page documents
@@ -471,64 +471,6 @@ type CalloutSliceVariation = CalloutSliceDefault
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type CalloutSlice = prismic.SharedSlice<"callout", CalloutSliceVariation>;
-
-/**
- * Primary content in *CtaBanner → Default → Primary*
- */
-export interface CtaBannerSliceDefaultPrimary {
-	/**
-	 * Body field in *CtaBanner → Default → Primary*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: cta_banner.default.primary.body
-	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
-	 */
-	body: prismic.RichTextField;
-	
-	/**
-	 * Label field in *CtaBanner → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: cta_banner.default.primary.label
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	label: prismic.KeyTextField;
-	
-	/**
-	 * Href field in *CtaBanner → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: cta_banner.default.primary.href
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	href: prismic.KeyTextField;
-}
-
-/**
- * Default variation for CtaBanner Slice
- *
- * - **API ID**: `default`
- * - **Description**: Call to action section for detail pages
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type CtaBannerSliceDefault = prismic.SharedSliceVariation<"default", Simplify<CtaBannerSliceDefaultPrimary>, never>;
-
-/**
- * Slice variation for *CtaBanner*
- */
-type CtaBannerSliceVariation = CtaBannerSliceDefault
-
-/**
- * CtaBanner Shared Slice
- *
- * - **API ID**: `cta_banner`
- * - **Description**: Centered CTA button block
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type CtaBannerSlice = prismic.SharedSlice<"cta_banner", CtaBannerSliceVariation>;
 
 /**
  * Primary content in *DisclosureList → Items*
@@ -1006,74 +948,6 @@ type FileDownloadListSliceVariation = FileDownloadListSliceDefault
 export type FileDownloadListSlice = prismic.SharedSlice<"file_download_list", FileDownloadListSliceVariation>;
 
 /**
- * Primary content in *HeroBanner → Default → Primary*
- */
-export interface HeroBannerSliceDefaultPrimary {
-	/**
-	 * Title field in *HeroBanner → Default → Primary*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: hero_banner.default.primary.title
-	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
-	 */
-	title: prismic.RichTextField;
-	
-	/**
-	 * Image field in *HeroBanner → Default → Primary*
-	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: hero_banner.default.primary.image
-	 * - **Documentation**: https://prismic.io/docs/fields/image
-	 */
-	image: prismic.ImageField<never>;
-	
-	/**
-	 * CTA Label field in *HeroBanner → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: hero_banner.default.primary.cta_label
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	cta_label: prismic.KeyTextField;
-	
-	/**
-	 * CTA Link field in *HeroBanner → Default → Primary*
-	 *
-	 * - **Field Type**: Link
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: hero_banner.default.primary.cta_link
-	 * - **Documentation**: https://prismic.io/docs/fields/link
-	 */
-	cta_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-}
-
-/**
- * Default variation for HeroBanner Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type HeroBannerSliceDefault = prismic.SharedSliceVariation<"default", Simplify<HeroBannerSliceDefaultPrimary>, never>;
-
-/**
- * Slice variation for *HeroBanner*
- */
-type HeroBannerSliceVariation = HeroBannerSliceDefault
-
-/**
- * HeroBanner Shared Slice
- *
- * - **API ID**: `hero_banner`
- * - **Description**: HeroBanner
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type HeroBannerSlice = prismic.SharedSlice<"hero_banner", HeroBannerSliceVariation>;
-
-/**
  * Primary content in *ImageBlock → Default → Primary*
  */
 export interface ImageBlockSliceDefaultPrimary {
@@ -1233,64 +1107,6 @@ type LinkListSliceVariation = LinkListSliceDefault
 export type LinkListSlice = prismic.SharedSlice<"link_list", LinkListSliceVariation>;
 
 /**
- * Primary content in *NewsletterSignup → Default → Primary*
- */
-export interface NewsletterSignupSliceDefaultPrimary {
-	/**
-	 * Title field in *NewsletterSignup → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: newsletter_signup.default.primary.title
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	title: prismic.KeyTextField;
-	
-	/**
-	 * Input Placeholder field in *NewsletterSignup → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: you@example.com
-	 * - **API ID Path**: newsletter_signup.default.primary.input_placeholder
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	input_placeholder: prismic.KeyTextField;
-	
-	/**
-	 * Submit Label field in *NewsletterSignup → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Subscribe
-	 * - **API ID Path**: newsletter_signup.default.primary.submit_label
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	submit_label: prismic.KeyTextField;
-}
-
-/**
- * Default variation for NewsletterSignup Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type NewsletterSignupSliceDefault = prismic.SharedSliceVariation<"default", Simplify<NewsletterSignupSliceDefaultPrimary>, never>;
-
-/**
- * Slice variation for *NewsletterSignup*
- */
-type NewsletterSignupSliceVariation = NewsletterSignupSliceDefault
-
-/**
- * NewsletterSignup Shared Slice
- *
- * - **API ID**: `newsletter_signup`
- * - **Description**: NewsletterSignup
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type NewsletterSignupSlice = prismic.SharedSlice<"newsletter_signup", NewsletterSignupSliceVariation>;
-
-/**
  * Primary content in *PageTitle → Default → Primary*
  */
 export interface PageTitleSliceDefaultPrimary {
@@ -1445,69 +1261,6 @@ type RichTextSectionSliceVariation = RichTextSectionSliceDefault
  */
 export type RichTextSectionSlice = prismic.SharedSlice<"rich_text_section", RichTextSectionSliceVariation>;
 
-/**
- * Primary content in *SocialLinks → Default → Primary*
- */
-export interface SocialLinksSliceDefaultPrimary {
-	/**
-	 * Title field in *SocialLinks → Default → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: social_links.default.primary.title
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	title: prismic.KeyTextField;
-}
-
-/**
- * Primary content in *SocialLinks → Items*
- */
-export interface SocialLinksSliceDefaultItem {
-	/**
-	 * Label field in *SocialLinks → Items*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: social_links.items[].label
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	label: prismic.KeyTextField;
-	
-	/**
-	 * URL field in *SocialLinks → Items*
-	 *
-	 * - **Field Type**: Link
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: social_links.items[].url
-	 * - **Documentation**: https://prismic.io/docs/fields/link
-	 */
-	url: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-}
-
-/**
- * Default variation for SocialLinks Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type SocialLinksSliceDefault = prismic.SharedSliceVariation<"default", Simplify<SocialLinksSliceDefaultPrimary>, Simplify<SocialLinksSliceDefaultItem>>;
-
-/**
- * Slice variation for *SocialLinks*
- */
-type SocialLinksSliceVariation = SocialLinksSliceDefault
-
-/**
- * SocialLinks Shared Slice
- *
- * - **API ID**: `social_links`
- * - **Description**: SocialLinks
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type SocialLinksSlice = prismic.SharedSlice<"social_links", SocialLinksSliceVariation>;
-
 declare module "@prismicio/client" {
 	interface CreateClient {
 		(repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -1546,10 +1299,6 @@ declare module "@prismicio/client" {
 			CalloutSliceDefaultPrimary,
 			CalloutSliceVariation,
 			CalloutSliceDefault,
-			CtaBannerSlice,
-			CtaBannerSliceDefaultPrimary,
-			CtaBannerSliceVariation,
-			CtaBannerSliceDefault,
 			DisclosureListSlice,
 			DisclosureListSliceDefaultItem,
 			DisclosureListSliceVariation,
@@ -1575,10 +1324,6 @@ declare module "@prismicio/client" {
 			FileDownloadListSliceDefaultItem,
 			FileDownloadListSliceVariation,
 			FileDownloadListSliceDefault,
-			HeroBannerSlice,
-			HeroBannerSliceDefaultPrimary,
-			HeroBannerSliceVariation,
-			HeroBannerSliceDefault,
 			ImageBlockSlice,
 			ImageBlockSliceDefaultPrimary,
 			ImageBlockSliceVariation,
@@ -1592,10 +1337,6 @@ declare module "@prismicio/client" {
 			LinkListSliceDefaultItem,
 			LinkListSliceVariation,
 			LinkListSliceDefault,
-			NewsletterSignupSlice,
-			NewsletterSignupSliceDefaultPrimary,
-			NewsletterSignupSliceVariation,
-			NewsletterSignupSliceDefault,
 			PageTitleSlice,
 			PageTitleSliceDefaultPrimary,
 			PageTitleSliceVariation,
@@ -1604,12 +1345,7 @@ declare module "@prismicio/client" {
 			RichTextSectionSliceDefaultPrimary,
 			RichTextSectionSliceDefaultItem,
 			RichTextSectionSliceVariation,
-			RichTextSectionSliceDefault,
-			SocialLinksSlice,
-			SocialLinksSliceDefaultPrimary,
-			SocialLinksSliceDefaultItem,
-			SocialLinksSliceVariation,
-			SocialLinksSliceDefault
+			RichTextSectionSliceDefault
 		}
 	}
 }
