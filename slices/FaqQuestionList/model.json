@@ -159,6 +159,13 @@
             "single": "heading2,heading3,strong,em"
           },
           "type": "StructuredText"
+        },
+        "mobile_section_heading": {
+          "config": {
+            "label": "Mobile Section Heading",
+            "placeholder": "e.g. User Guide -- set on the first tile only, shown above the whole grid on mobile"
+          },
+          "type": "Text"
         }
       },
       "version": "initial"

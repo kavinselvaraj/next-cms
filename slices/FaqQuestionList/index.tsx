@@ -104,15 +104,22 @@ export default function FaqQuestionList({ slice }: FaqQuestionListProps) {
           {links}
         </div>
 
-        {/* Mobile: collapsible accordion */}
-        <Accordion type="single" collapsible className="border-b sm:hidden">
-          <AccordionItem value="category" className="border-t border-b-0">
-            <AccordionTrigger className="items-center! gap-3 py-3!">
-              <PrismicRichText field={slice.primary.heading} components={headingComponents} />
-            </AccordionTrigger>
-            <AccordionContent>{links}</AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        {/* Mobile: optional section heading (set on the first tile only) + collapsible accordion */}
+        <div className="sm:hidden">
+          {slice.primary.mobile_section_heading ? (
+            <h2 className="mb-2 text-xl font-bold">
+              {slice.primary.mobile_section_heading}
+            </h2>
+          ) : null}
+          <Accordion type="single" collapsible className="border-b">
+            <AccordionItem value="category" className="border-t border-b-0">
+              <AccordionTrigger className="items-center! gap-3 py-3!">
+                <PrismicRichText field={slice.primary.heading} components={headingComponents} />
+              </AccordionTrigger>
+              <AccordionContent>{links}</AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
       </div>
     );
   }

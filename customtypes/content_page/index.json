@@ -181,13 +181,6 @@
       }
     },
     "Footer": {
-      "footer_mobile_heading": {
-        "config": {
-          "label": "Footer Mobile Heading",
-          "placeholder": "e.g. User Guide (shown above the footer on mobile only)"
-        },
-        "type": "Text"
-      },
       "footer": {
         "config": {
           "choices": {
