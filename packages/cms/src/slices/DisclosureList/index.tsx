@@ -7,10 +7,10 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { ChevronLink } from "@/components/ui/chevron-link";
-import { cn } from "@/lib/utils";
+} from "../../components/ui/accordion";
+import { Button } from "../../components/ui/button";
+import { ChevronLink } from "../../components/ui/chevron-link";
+import { cn } from "../../lib/utils";
 
 export type DisclosureListProps = SliceComponentProps<Content.DisclosureListSlice>;
 

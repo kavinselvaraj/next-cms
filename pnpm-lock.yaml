@@ -90,6 +90,18 @@ importers:
       '@prismicio/react':
         specifier: ^2.9.0
         version: 2.9.2(@prismicio/client@7.22.0)(react@18.3.1)
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
+      cn:
+        specifier: ^0.2.6
+        version: 0.2.6
+      lucide-react:
+        specifier: ^1.42.0
+        version: 1.42.0(react@18.3.1)
+      radix-ui:
+        specifier: ^1.6.7
+        version: 1.6.7(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1

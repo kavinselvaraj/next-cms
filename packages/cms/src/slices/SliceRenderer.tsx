@@ -1,13 +1,24 @@
 import type { FC } from "react";
 
+import Accordion from "./Accordion";
+import Breadcrumbs from "./Breadcrumbs";
+import ButtonLink from "./ButtonLink";
+import Callout from "./Callout";
+import DisclosureList from "./DisclosureList";
+import FaqAnswerSwap from "./FaqAnswerSwap";
+import FaqQuestionList from "./FaqQuestionList";
+import FileDownloadList from "./FileDownloadList";
+import ImageBlock from "./ImageBlock";
+import InfoCardList from "./InfoCardList";
+import LinkList from "./LinkList";
+import PageTitle from "./PageTitle";
+import RichTextSection from "./RichTextSection";
+
 /**
  * Slice Registry
  *
  * Central mapping of Prismic slice types to React components.
  * Add new slices here as they are created.
- *
- * Intentionally empty for now — slice components have not been
- * migrated into this package yet. That's a separate, later step.
  */
 
 // biome-ignore lint/suspicious/noExplicitAny: Mixed slice types with and without generated types
@@ -24,7 +35,21 @@ export interface SliceRendererProps {
  * Registry mapping slice_type to component
  * Enables extensible, type-safe slice rendering
  */
-const sliceRegistry: Record<string, SliceComponent> = {};
+const sliceRegistry: Record<string, SliceComponent> = {
+  accordion: Accordion,
+  breadcrumbs: Breadcrumbs,
+  button_link: ButtonLink,
+  callout: Callout,
+  disclosure_list: DisclosureList,
+  faq_answer_swap: FaqAnswerSwap,
+  faq_question_list: FaqQuestionList,
+  file_download_list: FileDownloadList,
+  image_block: ImageBlock,
+  info_card_list: InfoCardList,
+  link_list: LinkList,
+  page_title: PageTitle,
+  rich_text_section: RichTextSection,
+};
 
 /**
  * Fallback component for unmapped/unknown slice types

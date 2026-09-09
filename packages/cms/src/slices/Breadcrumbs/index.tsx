@@ -1,7 +1,7 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
-import { PageContext } from "@/slices";
+import { PageContext } from "../types";
 
 export type BreadcrumbsProps = SliceComponentProps<
   Content.BreadcrumbsSlice,

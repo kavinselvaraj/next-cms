@@ -13,6 +13,6 @@
     "noEmit": true,
     "incremental": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "../../prismicio-types.d.ts"],
   "exclude": ["node_modules"]
 }

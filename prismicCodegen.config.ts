@@ -3,7 +3,7 @@ import type { Config } from "prismic-ts-codegen";
 const config: Config = {
   output: "./prismicio-types.d.ts",
   models: {
-    files: ["./customtypes/**/index.json", "./slices/**/model.json"],
+    files: ["./customtypes/**/index.json", "./packages/cms/src/slices/**/model.json"],
   },
 };
 

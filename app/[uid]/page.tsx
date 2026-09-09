@@ -1,9 +1,8 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SliceRenderer } from "cms";
+import { PageContext, SliceRenderer } from "cms";
 
 import { createClient } from "@/prismicio";
-import { PageContext } from "@/slices";
 import { cn } from "@/lib/utils";
 
 type PageProps = { params: { uid: string } };

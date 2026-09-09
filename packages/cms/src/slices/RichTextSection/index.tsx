@@ -1,8 +1,8 @@
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
-import { cn } from "@/lib/utils";
-import { richTextLabelComponents } from "@/lib/rich-text-components";
+import { cn } from "../../lib/utils";
+import { richTextLabelComponents } from "../../lib/rich-text-components";
 
 export type RichTextSectionProps =
   SliceComponentProps<Content.RichTextSectionSlice>;
