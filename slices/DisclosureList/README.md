@@ -61,7 +61,7 @@ Everything lives on primary fields — **one instance holds exactly one topic** 
 
 ## Styling conventions
 
-- Trailing link uses the shared [`ChevronLink`](../../components/prismic/chevron-link.tsx) component with `chevron={false}` — same `font-semibold text-primary` color/weight as `Accordion`'s links, but *without* the trailing `›` or row spacing (a plain inline link, not a stacked row).
+- Trailing link uses the shared [`ChevronLink`](../../components/ui/chevron-link.tsx) component with `chevron={false}` — same `font-semibold text-primary` color/weight as `Accordion`'s links, but *without* the trailing `›` or row spacing (a plain inline link, not a stacked row).
 - `box_body` paragraphs render at `text-[0.9rem]` — visibly smaller than the main `body` text above it (matches the reference design's two font sizes).
 - `files` buttons reuse `FileDownloadList`'s exact button treatment (`border-primary! text-primary! hover:bg-accent!` outline `Button`, disabled state for an empty `file` link) — see [`FileDownloadList`'s styling conventions](../FileDownloadList/README.md#styling-conventions) for the shared look, even though the markup isn't literally shared code between the two slices.
 - Same `AccordionItem` border override pattern (`border-t! border-b-0! last:border-b!`) as `Accordion` for a single divider between items.

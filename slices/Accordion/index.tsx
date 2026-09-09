@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ChevronLink } from "@/components/prismic/chevron-link";
+import { ChevronLink } from "@/components/ui/chevron-link";
 import { richTextLabelComponents } from "@/lib/rich-text-components";
 
 export type AccordionProps = SliceComponentProps<Content.AccordionSlice>;

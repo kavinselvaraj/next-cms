@@ -61,7 +61,7 @@ No primary fields — everything lives on repeatable `items`.
 
 - Number: `text-primary font-bold`. Title: `text-foreground font-bold`.
 - `note` box: `bg-muted`. `necessities` box: plain `border`, with `heading4` styled `text-[0.95rem] font-bold` and its paragraphs `text-muted-foreground text-[0.9rem]`.
-- Trailing links: shared [`ChevronLink`](../../components/prismic/chevron-link.tsx) component (see [slice library conventions](../README.md#conventions-used-across-every-slice)).
+- Trailing links: shared [`ChevronLink`](../../components/ui/chevron-link.tsx) component (see [slice library conventions](../README.md#conventions-used-across-every-slice)).
 - shadcn's default `AccordionItem` border classes are overridden (`border-t! border-b-0! last:border-b!`) to get one divider between items instead of Radix's default (which would double up with this slice's own top border).
 
 ## Known limitations
