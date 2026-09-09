@@ -66,6 +66,9 @@ importers:
       postcss:
         specifier: ^8.5.28
         version: 8.5.28
+      prismic:
+        specifier: ^1.16.0
+        version: 1.16.0
       tailwindcss:
         specifier: ^4.3.3
         version: 4.3.3
@@ -103,9 +106,6 @@ importers:
       '@types/react':
         specifier: ^18.3.5
         version: 18.3.31
-      prismic:
-        specifier: ^1.16.0
-        version: 1.16.0
       prismic-ts-codegen:
         specifier: ^0.1.20
         version: 0.1.30(@prismicio/client@7.22.0)(@prismicio/types@0.2.9)

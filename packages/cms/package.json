@@ -22,7 +22,6 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.5",
-    "prismic": "^1.16.0",
     "prismic-ts-codegen": "^0.1.20",
     "typescript": "^5.5.4"
   }
