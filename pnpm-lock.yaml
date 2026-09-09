@@ -20,6 +20,9 @@ importers:
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
+      cms:
+        specifier: workspace:*
+        version: link:packages/cms
       cn:
         specifier: ^0.2.6
         version: 0.2.6
